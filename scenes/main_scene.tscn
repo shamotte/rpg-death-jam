@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://clorfymsvn4ce"]
+
+[ext_resource type="PackedScene" uid="uid://xeoyjwfjd2s3" path="res://objects/anvil.tscn" id="1_abngx"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" parent="." instance=ExtResource("1_abngx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.819736, 0, -0.234135)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.823523, 0.567283, 0, -0.567283, 0.823523, 1.24257, 1.17407, 3.04971)
+
+[node name="GridMap" type="GridMap" parent="."]
