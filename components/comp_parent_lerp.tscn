@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtcat5osfxowp"]
+
+[ext_resource type="Script" path="res://components/comp_parent_lerp.gd" id="1_loem0"]
+
+[node name="CompParentLerp" type="Node"]
+script = ExtResource("1_loem0")
