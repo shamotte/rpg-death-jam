@@ -13,7 +13,7 @@ mesh = SubResource("BoxMesh_5ob48")
 
 [node name="Mover" type="Node" parent="."]
 script = ExtResource("1_e7xfx")
-move_direction = Vector3(1, 0, 0)
+move_direction = Vector3(0, -1, 0)
 
 [node name="tickable" type="Node" parent="."]
 script = ExtResource("2_lfar4")

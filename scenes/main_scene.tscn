@@ -1,13 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://clorfymsvn4ce"]
+[gd_scene load_steps=7 format=3 uid="uid://clorfymsvn4ce"]
 
 [ext_resource type="PackedScene" uid="uid://xeoyjwfjd2s3" path="res://objects/anvil.tscn" id="1_abngx"]
+[ext_resource type="PackedScene" uid="uid://cxo04kudaw137" path="res://objects/player/player.tscn" id="2_6u2a3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x8kc5"]
+sky_top_color = Color(0.283913, 0.367826, 0.934389, 1)
+sky_horizon_color = Color(0.841473, 0.544679, 0.735243, 1)
+ground_bottom_color = Color(0.107093, 0.431083, 0.668712, 1)
+ground_horizon_color = Color(0.312391, 0.68262, 0.98893, 1)
+
+[sub_resource type="Sky" id="Sky_nf5yk"]
+sky_material = SubResource("ProceduralSkyMaterial_x8kc5")
+
+[sub_resource type="Environment" id="Environment_g0drt"]
+background_mode = 2
+sky = SubResource("Sky_nf5yk")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_shxum"]
+size = Vector2(20, 20)
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Node3D" parent="." instance=ExtResource("1_abngx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.819736, 0, -0.234135)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.819736, 3, -0.234135)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.823523, 0.567283, 0, -0.567283, 0.823523, 1.24257, 1.17407, 3.04971)
+transform = Transform3D(1, 0, 0, 0, 0.823523, 0.567283, 0, -0.567283, 0.823523, 1.24257, 3.14606, 3.04971)
 
 [node name="GridMap" type="GridMap" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_6u2a3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g0drt")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12.9584, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_shxum")
