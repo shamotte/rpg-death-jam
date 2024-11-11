@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://blpq6dhxhbxch"]
+
+[ext_resource type="PackedScene" uid="uid://dsb6ht1p8ipaj" path="res://objects/ground_tile/ground_tile.gltf" id="1_v6ixa"]
+
+[node name="GroundTilemap" type="Node3D"]
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_v6ixa")]
