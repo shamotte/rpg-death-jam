@@ -32,6 +32,7 @@ environment = SubResource("Environment_g0drt")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12.9584, 0)
+light_color = Color(0.999787, 0.86806, 0, 1)
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
