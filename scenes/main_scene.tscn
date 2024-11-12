@@ -231,6 +231,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 4, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("2_6u2a3")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="AnvilActivator" parent="." node_paths=PackedStringArray("anvil") instance=ExtResource("3_x5n1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96642, 2.38419e-07, 2.25768)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxo04kudaw137"]
+[gd_scene load_steps=6 format=3 uid="uid://cxo04kudaw137"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_82gfj"]
 [ext_resource type="PackedScene" uid="uid://dtcat5osfxowp" path="res://components/comp_parent_lerp.tscn" id="2_0k7af"]
 [ext_resource type="PackedScene" uid="uid://dakpv7tdk6j2p" path="res://objects/player/human_test.glb" id="2_3ipr6"]
+[ext_resource type="PackedScene" uid="uid://67dw5stm6qds" path="res://objects/player/human22.glb" id="2_h5smf"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g4dq6"]
 
@@ -17,8 +18,12 @@ visible = false
 mesh = SubResource("CapsuleMesh_g4dq6")
 skeleton = NodePath("../..")
 
+[node name="human22" parent="Visual" instance=ExtResource("2_h5smf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.1215, 0)
+
 [node name="human_test" parent="Visual" instance=ExtResource("2_3ipr6")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.07285, 0)
+visible = false
 
 [node name="CompParentLerp" parent="Visual" instance=ExtResource("2_0k7af")]
 lerp_speed = 0.15
