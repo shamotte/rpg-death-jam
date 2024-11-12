@@ -7,6 +7,13 @@ func _input(event):
 		TimeManager.progres_time(1)
 		global_position.x -= 1
 		global_rotation.y = deg_to_rad(-90)
+		
+		return
+		var pp = PhysicsPointQueryParameters2D.new()
+		pp.collide_with_areas = true 
+		pp.position = $MovementChecks/LeftCheck.global_position
+		if get_world_3d().direct_space_state.intersect_point(pp, 1):
+			print("HIT")
 			
 	if event.is_action_pressed("move_right"):
 		TimeManager.progres_time(1)
