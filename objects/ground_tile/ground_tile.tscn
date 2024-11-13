@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4xnuhyh7kkis"]
+
+[ext_resource type="PackedScene" uid="uid://dsb6ht1p8ipaj" path="res://objects/ground_tile/ground_tile.gltf" id="1_pgyt4"]
+[ext_resource type="Script" path="res://objects/ground_tile/ground_tile.gd" id="2_tp1pl"]
+
+[node name="GroundTile" groups=["grid_element"] instance=ExtResource("1_pgyt4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+script = ExtResource("2_tp1pl")

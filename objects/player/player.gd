@@ -1,43 +1,69 @@
 extends Node3D
 
-var move_tween: Tween
+var can_move: bool = true
 
 func _input(event):
-	if event.is_action_pressed("move_left"):
-		TimeManager.progres_time(1)
-		global_position.x -= 1
-		global_rotation.y = deg_to_rad(-90)
-		
+	if not can_move:
 		return
-		var pp = PhysicsPointQueryParameters2D.new()
-		pp.collide_with_areas = true 
-		pp.position = $MovementChecks/LeftCheck.global_position
-		if get_world_3d().direct_space_state.intersect_point(pp, 1):
-			print("HIT")
+	
+	if event.is_action_pressed("move_left"):
+		global_rotation.y = deg_to_rad(-90)
+		if Grid.get_grid().get_cell_content($"MovementChecks/X-".global_position) is not GroundTile:
+			TimeManager.progres_time(1)
+			global_position.x -= 1
+			update_movement_checks()
+			
+		if Grid.get_grid().get_cell_content($"MovementChecks/Y-".global_position) is not GroundTile:
+			death()
 			
 	if event.is_action_pressed("move_right"):
-		TimeManager.progres_time(1)
-		global_position.x += 1
 		global_rotation.y = deg_to_rad(90)
+		if Grid.get_grid().get_cell_content($"MovementChecks/X+".global_position) is not GroundTile:
+			TimeManager.progres_time(1)
+			global_position.x += 1
+			update_movement_checks()
+			
+		if Grid.get_grid().get_cell_content($"MovementChecks/Y-".global_position) is not GroundTile:
+			death()
 		
 	if event.is_action_pressed("move_up"):
-		TimeManager.progres_time(1)
-		global_position.z -= 1
 		global_rotation.y = deg_to_rad(180)
+		if Grid.get_grid().get_cell_content($"MovementChecks/Z-".global_position) is not GroundTile:
+			TimeManager.progres_time(1)
+			global_position.z -= 1
+			update_movement_checks()
+			
+		if Grid.get_grid().get_cell_content($"MovementChecks/Y-".global_position) is not GroundTile:
+			death()
 		
 	if event.is_action_pressed("move_down"):
-		TimeManager.progres_time(1)
-		global_position.z += 1
 		global_rotation.y = deg_to_rad(0)
-		
+		if Grid.get_grid().get_cell_content($"MovementChecks/Z+".global_position) is not GroundTile:
+			TimeManager.progres_time(1)
+			global_position.z += 1
+			update_movement_checks()
+			
+		if Grid.get_grid().get_cell_content($"MovementChecks/Y-".global_position) is not GroundTile:
+			death()
+
+
+func death():
+	$AnimationPlayer.play("death")
+	can_move = false
+	
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "death":
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func update_movement_checks():
+	$MovementChecks.global_position = global_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	update_movement_checks()
 
 func _physics_process(delta: float) -> void:
 	pass
-	#$Visual.global_position = $Visual.global_position.lerp(global_position, 0.15)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

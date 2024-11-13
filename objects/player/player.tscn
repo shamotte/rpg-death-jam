@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxo04kudaw137"]
+[gd_scene load_steps=9 format=3 uid="uid://cxo04kudaw137"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_82gfj"]
 [ext_resource type="PackedScene" uid="uid://dtcat5osfxowp" path="res://components/comp_parent_lerp.tscn" id="2_0k7af"]
@@ -7,37 +7,86 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g4dq6"]
 
+[sub_resource type="Animation" id="Animation_weu2i"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(6.06286, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -10, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_twqc7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j811j"]
+_data = {
+"RESET": SubResource("Animation_twqc7"),
+"death": SubResource("Animation_weu2i")
+}
+
 [node name="Player" type="Node3D"]
 script = ExtResource("1_82gfj")
 
 [node name="Visual" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Visual"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
-mesh = SubResource("CapsuleMesh_g4dq6")
-skeleton = NodePath("../..")
-
-[node name="human22" parent="Visual" instance=ExtResource("2_h5smf")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.1215, 0)
-
-[node name="human_test" parent="Visual" instance=ExtResource("2_3ipr6")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.07285, 0)
-visible = false
-
 [node name="CompParentLerp" parent="Visual" instance=ExtResource("2_0k7af")]
 lerp_speed = 0.15
 
-[node name="MovementChecks" type="Node3D" parent="."]
+[node name="Model" type="Node3D" parent="Visual"]
 
-[node name="LeftCheck" type="Marker3D" parent="MovementChecks"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visual/Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_g4dq6")
+skeleton = NodePath("../../..")
+
+[node name="human22" parent="Visual/Model" instance=ExtResource("2_h5smf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.1215, 0)
+
+[node name="human_test" parent="Visual/Model" instance=ExtResource("2_3ipr6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.07285, 0)
+visible = false
+
+[node name="MovementChecks" type="Node3D" parent="."]
+top_level = true
+
+[node name="X+" type="Marker3D" parent="MovementChecks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
 
-[node name="RightCheck" type="Marker3D" parent="MovementChecks"]
+[node name="X-" type="Marker3D" parent="MovementChecks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 0)
 
-[node name="ForwardCheck" type="Marker3D" parent="MovementChecks"]
+[node name="Z+" type="Marker3D" parent="MovementChecks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
 
-[node name="BackCheck" type="Marker3D" parent="MovementChecks"]
+[node name="Z-" type="Marker3D" parent="MovementChecks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+
+[node name="Y-" type="Marker3D" parent="MovementChecks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j811j")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
