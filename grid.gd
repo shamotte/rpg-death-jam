@@ -99,6 +99,9 @@ func deterministic_call_by_name(function_name : String, argv : Array):
 						element.callv(function_name,argv)
 
 
+func get_cell_content(x : int , y:int, z: int):
+	return world[x][y][z]
+
 
 
 func _process(delta):
