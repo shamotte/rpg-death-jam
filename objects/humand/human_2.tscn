@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dap2eh4muy6or"]
+
+[ext_resource type="PackedScene" uid="uid://dqdbwffnvr5kk" path="res://objects/player/human2_anim.glb" id="1_4llqj"]
+[ext_resource type="Script" path="res://scripts/animator.gd" id="2_nvdxc"]
+
+[node name="human2_anim" node_paths=PackedStringArray("anim") instance=ExtResource("1_4llqj")]
+script = ExtResource("2_nvdxc")
+anim = NodePath("AnimationPlayer")
