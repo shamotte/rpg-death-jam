@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://b38p6p4m7hoch"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_p8tws"]
+[ext_resource type="PackedScene" uid="uid://67dw5stm6qds" path="res://objects/player/human22.glb" id="2_hh31q"]
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_p8tws")
+
+[node name="human22" parent="." instance=ExtResource("2_hh31q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176094, 0, -0.439973)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.195, 1.774, 0.61)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StartGame" type="Button" parent="CanvasLayer"]
+offset_left = 29.0
+offset_top = 512.0
+offset_right = 187.0
+offset_bottom = 566.0
+text = "Start Game"
+
+[node name="Exit" type="Button" parent="CanvasLayer"]
+offset_left = 29.0
+offset_top = 576.0
+offset_right = 187.0
+offset_bottom = 630.0
+text = "Quit
+"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77833, 14.7559)
+
+[connection signal="pressed" from="CanvasLayer/StartGame" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]
