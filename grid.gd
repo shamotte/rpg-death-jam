@@ -99,8 +99,8 @@ func deterministic_call_by_name(function_name : String, argv : Array):
 						element.callv(function_name,argv)
 
 
-func get_cell_content(x : int , y:int, z: int):
-	return world[x + min_x][y + min_y][z + min_z]
+func get_cell_content(position : Vector3i):
+	return world[position.x + min_x][position.y + min_y][position.z + min_z]
 
 
 
