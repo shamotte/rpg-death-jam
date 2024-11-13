@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://waglpofxvjs6"]
+
+[ext_resource type="PackedScene" uid="uid://dsb6ht1p8ipaj" path="res://objects/ground_tile/ground_tile.gltf" id="1_j04te"]
+
+[node name="blockbench_export" groups=["grid_element"] instance=ExtResource("1_j04te")]

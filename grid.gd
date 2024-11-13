@@ -20,14 +20,7 @@ func _ready():
 	#region gthering world size (in other world monstrocity)
 	
 	 
-	for child : Node3D in get_children():
-		var child_position = child.position;
-		min_x = min(child_position.x, min_x)
-		min_y = min(child_position.y, min_y)
-		min_z = min(child_position.z, min_z)
-		world_size_x = max(world_size_x,child_position.x)
-		world_size_y = max(world_size_y,child_position.y)
-		world_size_z = max(world_size_z,child_position.z)
+	update_extents_req(self)
 		
 	
 	min_x = abs(min_x)
@@ -61,12 +54,12 @@ func _ready():
 
 	
 	
+	add_children_to_grid_req(self)
 	
 	
-	for child : Node3D in get_children():
-		var grid_position : Vector3i = child.position
 		
-		world[grid_position.x + min_x][grid_position.y+ min_y][grid_position.z + min_z] = child;
+		
+		
 		
 		
 #endregion
@@ -75,7 +68,32 @@ func _ready():
 	TimeManager.time_tick.connect(tick_on_grid)
 
 	
+
+func update_extents_req(node : Node3D):
+	if node.is_in_group("grid_container"):
+		if node.position != Vector3.ZERO:
+			printerr(node.name + "nie jest ustawiony w punkcie (0,0,0) - prawdopodobnie niepoprawnie ustawienie siatki")
+		for child : Node3D in node.get_children():
+			update_extents_req(child)
+	elif node.is_in_group("grid_element"):
+		var child_position = node.position;
+		min_x = min(child_position.x, min_x)
+		min_y = min(child_position.y, min_y)
+		min_z = min(child_position.z, min_z)
+		world_size_x = max(world_size_x,child_position.x)
+		world_size_y = max(world_size_y,child_position.y)
+		world_size_z = max(world_size_z,child_position.z)
 	
+func add_children_to_grid_req(node : Node3D):
+	print(node.name)
+		
+	if node.is_in_group("grid_container"):
+		for child : Node3D in node.get_children():
+			add_children_to_grid_req(child)
+	elif node.is_in_group("grid_element"):
+		var grid_position : Vector3i = node.position
+		world[grid_position.x + min_x][grid_position.y+ min_y][grid_position.z + min_z] = node;
+		node.set_meta("test",true)
 
 
 func tick_on_grid(time_steps : int):

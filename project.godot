@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 TimeManager="*res://scripts/time_manager.gd"
 Grid="*res://scripts/global_grid.gd"
 
+[global_group]
+
+grid_container=""
+grid_element=""
+
 [input]
 
 move_left={

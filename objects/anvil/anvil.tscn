@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dtcat5osfxowp" path="res://components/comp_parent_lerp.tscn" id="3_u5m6b"]
 [ext_resource type="PackedScene" uid="uid://vs5lkq4ij5ox" path="res://objects/anvil/anvil.gltf" id="5_fvhrv"]
 
-[node name="Anvil" type="Node3D"]
+[node name="Anvil" type="Node3D" groups=["grid_element"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 script = ExtResource("1_sevdb")
 
