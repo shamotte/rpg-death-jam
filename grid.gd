@@ -1,5 +1,5 @@
 extends Node3D
-
+class_name GridObject
 
 
 var world : Array #indexed as [x][y][z]
@@ -15,7 +15,7 @@ var world_size_y = 0
 
 
 func _ready():
-	
+	Grid.set_grid(self)
 	
 	#region gthering world size (in other world monstrocity)
 	
