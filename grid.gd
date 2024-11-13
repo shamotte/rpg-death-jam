@@ -118,6 +118,14 @@ func deterministic_call_by_name(function_name : String, argv : Array):
 
 
 func get_cell_content(position : Vector3i):
+	if (position.x >= world_size_x || position.x + min_x < 0):
+		return null;
+	if (position.y >= world_size_y || position.y + min_y < 0):
+		return null;
+	if (position.z >= world_size_z || position.z + min_z < 0):
+		return null;
+	
+		
 	return world[position.x + min_x][position.y + min_y][position.z + min_z]
 
 
