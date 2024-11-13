@@ -66,7 +66,7 @@ func _ready():
 	for child : Node3D in get_children():
 		var grid_position : Vector3i = child.position
 		
-		world[grid_position.x][grid_position.y][grid_position.z] = child;
+		world[grid_position.x + min_x][grid_position.y+ min_y][grid_position.z + min_z] = child;
 		
 		
 #endregion
@@ -100,7 +100,7 @@ func deterministic_call_by_name(function_name : String, argv : Array):
 
 
 func get_cell_content(x : int , y:int, z: int):
-	return world[x][y][z]
+	return world[x + min_x][y + min_y][z + min_z]
 
 
 
