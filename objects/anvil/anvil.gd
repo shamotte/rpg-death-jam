@@ -14,7 +14,7 @@ func set_falling(f: bool) -> void:
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	TimeManager.time_tick.connect(move_time_steps)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
