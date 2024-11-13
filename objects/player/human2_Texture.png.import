@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cly5krrsci37o"
-path.s3tc="res://.godot/imported/ground_tile_1.png-82021c4254791fa26f689c36143a3674.s3tc.ctex"
+uid="uid://bblwhg2l448od"
+path.s3tc="res://.godot/imported/human2_Texture.png-d222cc6bf9bd40fe94851997b3f33d0c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "47bdbb3467fcb7a2aa37973d60186394"
+"md5": "c8d1b68634affc01dfcde61c18ffc398"
 }
 
 [deps]
 
-source_file="res://objects/ground_tile/ground_tile_1.png"
-dest_files=["res://.godot/imported/ground_tile_1.png-82021c4254791fa26f689c36143a3674.s3tc.ctex"]
+source_file="res://objects/player/human2_Texture.png"
+dest_files=["res://.godot/imported/human2_Texture.png-d222cc6bf9bd40fe94851997b3f33d0c.s3tc.ctex"]
 
 [params]
 
