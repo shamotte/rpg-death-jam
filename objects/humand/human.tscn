@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2oopcb5mlwkb"]
-
-[ext_resource type="PackedScene" uid="uid://67dw5stm6qds" path="res://objects/player/human22.glb" id="1_q5vr2"]
+[gd_scene load_steps=4 format=3 uid="uid://b2oopcb5mlwkb"]
 
 [sub_resource type="Animation" id="Animation_gjrb8"]
 length = 0.001
@@ -308,7 +306,7 @@ _data = {
 "test'": SubResource("Animation_13g7y")
 }
 
-[node name="human22" instance=ExtResource("1_q5vr2")]
+[node name="human22"]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/rest = Transform3D(0.999991, -0.00338981, -0.00263858, 0.0033898, 0.999994, -8.87887e-06, 0.00263859, -6.54713e-08, 0.999996, -0.00275923, -0.525393, 4.0055e-07)

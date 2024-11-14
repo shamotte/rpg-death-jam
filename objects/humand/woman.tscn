@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2yhsx83qvjan"]
+
+[ext_resource type="PackedScene" uid="uid://bpk1g2le14elq" path="res://objects/humand/woman.glb" id="1_f1icd"]
+[ext_resource type="Script" path="res://scripts/animator.gd" id="2_jch76"]
+
+[node name="woman" node_paths=PackedStringArray("anim") instance=ExtResource("1_f1icd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.17049, 0)
+script = ExtResource("2_jch76")
+anim = NodePath("AnimationPlayer")
+
+[node name="Skeleton3D" parent="WomanArmature" index="0"]
+bones/0/position = Vector3(0.00758922, -1.50683, -0.272446)
+bones/0/rotation = Quaternion(-4.08555e-06, 0.00203556, 0.00203544, 0.999996)
+bones/1/rotation = Quaternion(0.988176, 0.105905, 0.11061, -0.00766423)
+bones/2/rotation = Quaternion(-0.00874762, -0.0702756, 0.0591689, 0.995733)
+bones/3/rotation = Quaternion(0.919187, 0.0903565, 0.0311948, 0.382044)
+bones/4/rotation = Quaternion(-0.130256, 0.1303, -0.15571, 0.970469)
+bones/5/rotation = Quaternion(-7.35412e-13, -1.39663e-10, -1.39671e-10, 1)
+bones/7/rotation = Quaternion(0.144648, -0.0393568, 0.0622886, 0.986736)
+bones/8/rotation = Quaternion(0.510135, 0.499852, 0.501933, -0.487826)
+bones/9/rotation = Quaternion(-0.0110966, -0.0111014, 0.00034834, 0.999877)
+bones/10/rotation = Quaternion(0.0119965, 0.0120012, -0.00036578, 0.999856)
+bones/11/rotation = Quaternion(-0.0470056, -0.0470546, 0.00308815, 0.997781)
+bones/12/rotation = Quaternion(-0.562824, -0.639426, 0.466284, 0.238628)
+bones/13/rotation = Quaternion(0.00657637, -0.0240096, 0.0330018, 0.999145)
+bones/14/position = Vector3(-0.403122, 0.538361, 0.0283064)
+bones/14/rotation = Quaternion(0.510135, -0.499934, -0.497862, -0.491897)
+bones/15/rotation = Quaternion(-0.100216, 0.1502, -0.210626, 0.960746)
+bones/16/rotation = Quaternion(-0.0315964, -0.0210656, 0.00851432, 0.999242)
+bones/17/rotation = Quaternion(-0.0470058, 0.0470549, -0.00308818, 0.997781)

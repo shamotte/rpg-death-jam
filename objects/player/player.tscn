@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxo04kudaw137"]
+[gd_scene load_steps=9 format=3 uid="uid://cxo04kudaw137"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_82gfj"]
 [ext_resource type="PackedScene" uid="uid://dtcat5osfxowp" path="res://components/comp_parent_lerp.tscn" id="2_0k7af"]
+[ext_resource type="PackedScene" uid="uid://d2yhsx83qvjan" path="res://objects/humand/woman.tscn" id="3_th4ko"]
 [ext_resource type="PackedScene" uid="uid://dap2eh4muy6or" path="res://objects/humand/human_2.tscn" id="3_wcpal"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g4dq6"]
@@ -58,8 +59,12 @@ visible = false
 mesh = SubResource("CapsuleMesh_g4dq6")
 skeleton = NodePath("../../..")
 
+[node name="woman" parent="Visual/Model" instance=ExtResource("3_th4ko")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.17049, -0.0777267)
+
 [node name="human2_anim2" parent="Visual/Model" instance=ExtResource("3_wcpal")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.12422, 0)
+visible = false
 
 [node name="MovementChecks" type="Node3D" parent="."]
 top_level = true

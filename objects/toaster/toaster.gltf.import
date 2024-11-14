@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bydmtfu2qi28n"
-path="res://.godot/imported/human2.glb-e3e5b93004e645f8b3ed702eeb7e272d.scn"
+uid="uid://8juafkrxsarf"
+path="res://.godot/imported/toaster.gltf-c15a610f289f3aabf22367868d645549.scn"
 
 [deps]
 
-source_file="res://objects/player/human2.glb"
-dest_files=["res://.godot/imported/human2.glb-e3e5b93004e645f8b3ed702eeb7e272d.scn"]
+source_file="res://objects/toaster/toaster.gltf"
+dest_files=["res://.godot/imported/toaster.gltf-c15a610f289f3aabf22367868d645549.scn"]
 
 [params]
 
