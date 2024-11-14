@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://7i2r8txvxp7f"]
+
+[ext_resource type="Script" path="res://objects/ground_tile/ground_tile.gd" id="1_1t4d4"]
+[ext_resource type="PackedScene" uid="uid://d3s05hy4girbm" path="res://objects/ground_tile/grass/ground_tile.gltf" id="2_1vhjk"]
+
+[node name="GrassTile" type="Node3D" groups=["grid_element"]]
+script = ExtResource("1_1t4d4")
+
+[node name="blockbench_export" parent="." instance=ExtResource("2_1vhjk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)

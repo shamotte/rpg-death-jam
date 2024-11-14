@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://7qfbx1tnq8ky"]
+
+[ext_resource type="PackedScene" uid="uid://ckwj7xj75a521" path="res://objects/ground_tile/ground_tile_alt.gltf" id="1_lywth"]
+[ext_resource type="Script" path="res://objects/ground_tile/ground_tile.gd" id="2_4dv6e"]
+
+[node name="GroundTileAlt" groups=["grid_element"] instance=ExtResource("1_lywth")]
+script = ExtResource("2_4dv6e")
