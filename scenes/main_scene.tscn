@@ -120,11 +120,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
 [node name="GrassTile23" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
 
+[node name="Player" parent="Tiles/Tiles" instance=ExtResource("2_6u2a3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
 [node name="AnvilActivator" parent="Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("3_x5n1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
 anvil = NodePath("../Anvil2")
-
-[node name="Player" parent="Tiles" instance=ExtResource("2_6u2a3")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="Quit" parent="." instance=ExtResource("5_y0fn4")]

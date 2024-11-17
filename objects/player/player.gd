@@ -8,7 +8,11 @@ func _input(event):
 		return
 	
 	if event.is_action_pressed("interact"):
-		var interacting = Grid.get_grid().get_cell_content_world($"MovementChecksRelative/Forward".global_position)
+		var temp = grid_position + Vector3i(basis.z)
+		print("temp : "  + str(temp))
+		print("pos : " + str(grid_position))
+		
+		var interacting = Grid.get_grid().get_cell_content_world(temp)
 		print(interacting)
 		if interacting is AnvilActivator:
 			interacting.interact()

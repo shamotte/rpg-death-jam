@@ -176,6 +176,7 @@ func move_on_grid(position : Vector3i, size : Vector3i, element : GridElement, d
 						printerr("element left the grid");
 						element.queue_free()
 		return position + direction
+	
 	return position
 	
 	

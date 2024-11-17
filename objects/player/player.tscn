@@ -90,7 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 [node name="MovementChecksRelative" type="Node3D" parent="."]
 
 [node name="Forward" type="Marker3D" parent="MovementChecksRelative"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MovementChecksRelative/Forward"]
 mesh = SubResource("PrismMesh_ftq0w")
