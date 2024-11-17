@@ -2,6 +2,8 @@ extends Node3D
 class_name GridObject
 
 
+
+
 var world : Array #indexed as [x][y][z]
 
 #region world size wariables
@@ -55,13 +57,7 @@ func _ready():
 	
 	
 	add_children_to_grid_req(self)
-	
-	
-		
-		
-		
-		
-		
+
 #endregion
 	
 
@@ -101,34 +97,89 @@ func tick_on_grid(time_steps : int):
 	for it_x in range(world_size_x):
 		for it_y in range(world_size_y):
 			for it_z in range(world_size_z):
-				var element:Node3D = world[it_x][it_y][it_z]
-				if is_instance_valid(element):
-					if element.has_method("move_time_steps"):
-						element.call("move_time_steps",time_steps)
-	
+				if is_instance_valid(world[it_x][it_y][it_z]):
+					var element:GridElement = world[it_x][it_y][it_z]
+					if is_instance_valid(element):
+						if not element.updated:
+							element.move_time_steps(time_steps)
+							element.updated = true;
+				else:
+					world[it_x][it_y][it_z] = null
+	Grid.reset_update.emit()
+
 
 func deterministic_call_by_name(function_name : String, argv : Array):
 	for it_x in range(world_size_x):
 		for it_y in range(world_size_y):
 			for it_z in range(world_size_z):
-				var element:Node3D = world[it_x][it_y][it_z]
+				var element:GridElement = world[it_x][it_y][it_z]
 				if is_instance_valid(element):
 					if element.has_method(function_name):
 						element.callv(function_name,argv)
 
-
-func get_cell_content(position : Vector3i):
-	if (position.x >= world_size_x || position.x + min_x < 0):
+func get_cell_content_grid(position : Vector3i):
+	if (position.x >= world_size_x || position.x  < 0):
 		return null;
-	if (position.y >= world_size_y || position.y + min_y < 0):
+	if (position.y >= world_size_y || position.y  < 0):
 		return null;
-	if (position.z >= world_size_z || position.z + min_z < 0):
+	if (position.z >= world_size_z || position.z < 0):
 		return null;
 	
-		
-	return world[position.x + min_x][position.y + min_y][position.z + min_z]
+	if is_instance_valid(world[position.x ][position.y ][position.z ]):
+		return world[position.x ][position.y][position.z]
+	else :
+		return null
 
 
+func get_cell_content_world(position : Vector3i):
+	if (position.x + min_x >= world_size_x || position.x  +min_x< 0):
+		return null;
+	if (position.y + min_y >= world_size_y || position.y  + min_y< 0):
+		return null;
+	if (position.z + min_z >= world_size_z || position.z + min_z< 0):
+		return null;
+	
+	if is_instance_valid(world[position.x + min_x][position.y + min_y][position.z + min_z]):
+		return world[position.x + min_x][position.y + min_y][position.z + min_z]
+	else :
+		return null
+	
+func set_cell_context(position : Vector3i, element: GridElement)-> bool:
+	if (position.x >= world_size_x || position.x + min_x < 0):
+		return false;
+	if (position.y >= world_size_y || position.y + min_y < 0):
+		return false;
+	if (position.z >= world_size_z || position.z + min_z < 0):
+		return false;
+	
+	world[position.x + min_x][position.y + min_y][position.z + min_z] = element
+	return true
+
+
+func move_on_grid(position : Vector3i, size : Vector3i, element : GridElement, direction : Vector3i) -> Vector3i:
+	var object_blocked = false;
+	for size_x in range(size.x):
+		for size_y in range(size.y):
+			for size_z in range(size.z):
+				var collision = get_cell_content_world(position + Vector3i(size_x,size_y,size_z) + direction)
+				if not (collision == null or collision == element or not is_instance_valid(collision)):
+					print(element.name +" collided with " + collision.name)
+					object_blocked = true;
+					
+	if not object_blocked:
+		for size_x in range(size.x):
+			for size_y in range(size.y):
+				for size_z in range(size.z):
+					if not set_cell_context(position + Vector3i(size_x,size_y,size_z) + direction,element):
+						printerr("element left the grid");
+						element.queue_free()
+		return position + direction
+	return position
+	
+	
+func convert_to_world_coordinates(grid_position : Vector3i)->Vector3:
+	return grid_position;
+	
 
 func _process(delta):
 	pass

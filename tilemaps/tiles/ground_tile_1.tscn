@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://waglpofxvjs6"]
+[gd_scene load_steps=3 format=3 uid="uid://waglpofxvjs6"]
 
 [ext_resource type="PackedScene" uid="uid://dsb6ht1p8ipaj" path="res://objects/ground_tile/ground_tile.gltf" id="1_j04te"]
+[ext_resource type="Script" path="res://tilemaps/tiles/ground_tile.gd" id="2_dti2a"]
 
 [node name="blockbench_export" groups=["grid_element"] instance=ExtResource("1_j04te")]
+script = ExtResource("2_dti2a")

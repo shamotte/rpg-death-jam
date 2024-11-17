@@ -1,4 +1,4 @@
-extends Node3D
+extends GridElement
 
 @export var falling: bool = false
 @export var move_direction : Vector3 = Vector3.ZERO
@@ -14,7 +14,8 @@ func set_falling(f: bool) -> void:
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	super._ready()
+	set_falling(true)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,5 +31,6 @@ func _input(event):
 
 
 func move_time_steps(time_steps : int):
-	position = position + move_direction * time_steps
+	move(move_direction * time_steps)
+	
 	
