@@ -1,4 +1,4 @@
-extends Node
+extends GridElement
 
 @export var anim : AnimationPlayer
 @export var current_animation : String = "Idle"
