@@ -13,6 +13,8 @@ var min_z : int = 0
 var world_size_x = 0
 var world_size_z = 0
 var world_size_y = 0
+
+var world_margin = 10
 #endregion
 
 
@@ -23,15 +25,15 @@ func _ready():
 	
 	 
 	update_extents_req(self)
-		
 	
-	min_x = abs(min_x)
-	min_y = abs(min_y)
-	min_z = abs(min_z)
 	
-	world_size_x += min_x + 1
-	world_size_y += min_y + 1
-	world_size_z += min_z + 1
+	min_x = abs(min_x - world_margin)
+	min_y = abs(min_y - world_margin)
+	min_z = abs(min_z - world_margin)
+	
+	world_size_x += min_x + world_margin + 1
+	world_size_y += min_y + world_margin + 1
+	world_size_z += min_z + world_margin + 1
 	
 	
 	

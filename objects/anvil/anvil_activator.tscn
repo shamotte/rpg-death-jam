@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://kcne7vfwqlht"]
+[gd_scene load_steps=3 format=3 uid="uid://kcne7vfwqlht"]
 
 [ext_resource type="Script" path="res://objects/anvil/anvil_activator.gd" id="1_6qtfg"]
 
-[node name="AnvilActivator" type="Node3D"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_pnmnl"]
+height = 1.0
+
+[node name="AnvilActivator" type="Node3D" groups=["grid_element"]]
 script = ExtResource("1_6qtfg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_pnmnl")

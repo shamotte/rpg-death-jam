@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dtcat5osfxowp" path="res://components/comp_parent_lerp.tscn" id="3_u5m6b"]
 [ext_resource type="PackedScene" uid="uid://vs5lkq4ij5ox" path="res://objects/anvil/anvil.gltf" id="5_fvhrv"]
 
-[node name="Anvil" type="Node3D" groups=["grid_element"]]
+[node name="Anvil" type="Node3D" groups=["grid_element", "grid_solid"]]
 script = ExtResource("1_sevdb")
 
 [node name="Visual" type="Node3D" parent="."]

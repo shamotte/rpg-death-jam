@@ -15,19 +15,12 @@ func set_falling(f: bool) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	set_falling(true)
+	set_falling(falling)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-
-func _input(event):
-	if event is InputEventKey:
-		if event.keycode == KEY_SPACE:
-			set_falling(true)
-			
 
 
 func move_time_steps(time_steps : int):

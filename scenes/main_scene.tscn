@@ -49,13 +49,8 @@ mesh = SubResource("PlaneMesh_shxum")
 [node name="Tiles" type="Node3D" parent="." groups=["grid_container"]]
 script = ExtResource("1_vx12u")
 
-[node name="Anvil" parent="Tiles" instance=ExtResource("1_abngx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
-falling = true
-
 [node name="Anvil2" parent="Tiles" instance=ExtResource("1_abngx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 1)
-falling = true
 
 [node name="Tiles" type="Node3D" parent="Tiles" groups=["grid_container"]]
 
@@ -125,11 +120,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
 [node name="GrassTile23" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_6u2a3")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+[node name="AnvilActivator" parent="Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("3_x5n1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+anvil = NodePath("../Anvil2")
 
-[node name="AnvilActivator" parent="." node_paths=PackedStringArray("anvil") instance=ExtResource("3_x5n1l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96642, 2.38419e-07, 2.25768)
-anvil = NodePath("../Tiles/Anvil")
+[node name="Player" parent="Tiles" instance=ExtResource("2_6u2a3")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="Quit" parent="." instance=ExtResource("5_y0fn4")]
