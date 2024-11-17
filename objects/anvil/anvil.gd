@@ -8,9 +8,11 @@ func set_falling(f: bool) -> void:
 	falling = f
 	
 	if falling:
-		move_direction = Vector3(0, 1, 1)
+		move_direction = Vector3(0, -1, 0)
+		$Visual/Arrow.visible = true
 	else:
 		move_direction = Vector3(0, 0, 0)
+		$Visual/Arrow.visible = false
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
