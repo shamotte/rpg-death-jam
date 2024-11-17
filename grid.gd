@@ -145,11 +145,11 @@ func get_cell_content_world(position : Vector3i):
 		return null
 	
 func set_cell_context(position : Vector3i, element: GridElement)-> bool:
-	if (position.x >= world_size_x || position.x + min_x < 0):
+	if (position.x + min_x >= world_size_x || position.x + min_x < 0):
 		return false;
-	if (position.y >= world_size_y || position.y + min_y < 0):
+	if (position.y + min_y >= world_size_y || position.y + min_y < 0):
 		return false;
-	if (position.z >= world_size_z || position.z + min_z < 0):
+	if (position.z  + min_z >= world_size_z || position.z + min_z < 0):
 		return false;
 	
 	world[position.x + min_x][position.y + min_y][position.z + min_z] = element
