@@ -8,7 +8,7 @@ func set_falling(f: bool) -> void:
 	falling = f
 	
 	if falling:
-		move_direction = Vector3(0, -1, 0)
+		move_direction = Vector3(0, 1, 1)
 	else:
 		move_direction = Vector3(0, 0, 0)
 	
