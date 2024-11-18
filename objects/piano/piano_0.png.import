@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj6e4f1tpkh16"
-path.s3tc="res://.godot/imported/ground_tile_0.png-41986b5d0d4375a12136f547f3c2ec06.s3tc.ctex"
+uid="uid://dnxkte7ulucgs"
+path.s3tc="res://.godot/imported/piano_0.png-23efb5f266ca05c45d84f21d37ef23bb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "99691cc4227194c05a88880a6f0c13e8"
+"md5": "96d00515e9ce0f0aac8f4e83fad7d168"
 }
 
 [deps]
 
-source_file="res://objects/ground_tile/grass/ground_tile_0.png"
-dest_files=["res://.godot/imported/ground_tile_0.png-41986b5d0d4375a12136f547f3c2ec06.s3tc.ctex"]
+source_file="res://objects/piano/piano_0.png"
+dest_files=["res://.godot/imported/piano_0.png-23efb5f266ca05c45d84f21d37ef23bb.s3tc.ctex"]
 
 [params]
 

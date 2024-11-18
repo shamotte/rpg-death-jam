@@ -1,8 +1,31 @@
 [gd_scene load_steps=3 format=3 uid="uid://dap2eh4muy6or"]
 
 [ext_resource type="PackedScene" uid="uid://dqdbwffnvr5kk" path="res://objects/humand/human2_anim.glb" id="1_4llqj"]
-[ext_resource type="Script" path="res://scripts/animator.gd" id="2_nvdxc"]
+[ext_resource type="Script" path="res://objects/humand/human.gd" id="2_rqx5w"]
 
-[node name="human2_anim" node_paths=PackedStringArray("anim") instance=ExtResource("1_4llqj")]
-script = ExtResource("2_nvdxc")
+[node name="human2_anim" node_paths=PackedStringArray("anim") groups=["grid_element"] instance=ExtResource("1_4llqj")]
+script = ExtResource("2_rqx5w")
 anim = NodePath("AnimationPlayer")
+size_on_grid = Vector3i(1, 2, 1)
+
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-0.00275923, -0.525393, 4.00549e-07)
+bones/0/rotation = Quaternion(2.20335e-06, -0.0013193, 0.00169491, 0.999998)
+bones/1/rotation = Quaternion(0.0188316, 0.00182181, -0.0171302, 0.999674)
+bones/3/rotation = Quaternion(-0.000409342, 0.0248295, -0.0248338, 0.999383)
+bones/4/position = Vector3(0.181543, 0.517279, 0.000473785)
+bones/5/rotation = Quaternion(0.589669, -0.171932, -0.0971733, 0.783127)
+bones/6/rotation = Quaternion(0.111016, 0.76309, 0.0749054, 0.632264)
+bones/7/rotation = Quaternion(-0.165688, 0.10167, 0.102803, 0.975521)
+bones/11/rotation = Quaternion(0.510085, -0.278337, -0.273596, 0.766477)
+bones/12/rotation = Quaternion(0.0326629, -0.259343, 0.0356431, 0.964575)
+bones/13/rotation = Quaternion(-0.274027, -0.106909, -0.241946, 0.924631)
+bones/16/position = Vector3(-0.12355, 0.338354, 0.000325926)
+bones/16/rotation = Quaternion(0.967688, -0.153629, 0.182463, 0.0817661)
+bones/17/rotation = Quaternion(0.0236442, -0.103933, -0.106446, 0.988589)
+bones/18/position = Vector3(0.125841, 0.337508, -0.000332116)
+bones/18/rotation = Quaternion(0.969956, 0.117663, -0.191978, 0.0921174)
+bones/19/rotation = Quaternion(0.0270474, 0.104756, 0.105015, 0.988568)

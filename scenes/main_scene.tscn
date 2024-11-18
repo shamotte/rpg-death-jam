@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://clorfymsvn4ce"]
+[gd_scene load_steps=17 format=3 uid="uid://clorfymsvn4ce"]
 
 [ext_resource type="PackedScene" uid="uid://xeoyjwfjd2s3" path="res://objects/anvil/anvil.tscn" id="1_abngx"]
 [ext_resource type="Script" path="res://grid.gd" id="1_vx12u"]
@@ -6,8 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/anvil/anvil_activator.tscn" id="3_x5n1l"]
 [ext_resource type="PackedScene" uid="uid://7i2r8txvxp7f" path="res://objects/ground_tile/grass/grass_tile.tscn" id="3_yp68r"]
 [ext_resource type="PackedScene" uid="uid://3wt40i73oolg" path="res://ui/quit.tscn" id="5_y0fn4"]
-[ext_resource type="PackedScene" uid="uid://dsgpkxciyeodf" path="res://objects/table/table.glb" id="7_obr0k"]
-[ext_resource type="PackedScene" uid="uid://x8pv3nsr3ddo" path="res://objects/spikes/spikes.glb" id="8_aua58"]
+[ext_resource type="PackedScene" uid="uid://dap2eh4muy6or" path="res://objects/humand/human_2.tscn" id="7_dmygj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x8kc5"]
 sky_top_color = Color(0.283913, 0.367826, 0.934389, 1)
@@ -22,7 +21,52 @@ sky_material = SubResource("ProceduralSkyMaterial_x8kc5")
 background_mode = 2
 sky = SubResource("Sky_nf5yk")
 ambient_light_source = 2
-ambient_light_color = Color(0.408874, 0.692285, 1, 1)
+ambient_light_color = Color(0.671048, 0.825302, 1, 1)
+
+[sub_resource type="GDScript" id="GDScript_kg2jp"]
+script/source = "extends Node3D
+
+
+func _ready() -> void:
+	$AnimationPlayer.play(\"intro\")
+"
+
+[sub_resource type="Animation" id="Animation_t4u2b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_osjqg"]
+resource_name = "intro"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.98, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dee8f"]
+_data = {
+"RESET": SubResource("Animation_t4u2b"),
+"intro": SubResource("Animation_osjqg")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nalih"]
 albedo_color = Color(0.560784, 0.792157, 0.278431, 1)
@@ -39,10 +83,23 @@ environment = SubResource("Environment_g0drt")
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12.9584, 0)
 light_color = Color(0.999787, 0.86806, 0, 1)
+light_energy = 0.238
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.942286, 0.33481, 0, -0.33481, 0.942286, 0, 4.35403, 8.19795)
+[node name="CameraContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.942286, 0.33481, 0, -0.33481, 0.942286, 0, 0, 0)
+script = SubResource("GDScript_kg2jp")
+
+[node name="CameraGimble" type="Node3D" parent="CameraContainer"]
+
+[node name="Camera3D" type="Camera3D" parent="CameraContainer/CameraGimble"]
+transform = Transform3D(1, 0, 0, 3.67804e-15, 0.965926, 0.258819, -4.84223e-16, -0.258819, 0.965926, -1.20424e-06, 2.10077, 6.88745)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CameraContainer"]
+root_node = NodePath("../CameraGimble/Camera3D")
+libraries = {
+"": SubResource("AnimationLibrary_dee8f")
+}
 
 [node name="Plane" type="MeshInstance3D" parent="."]
 visible = false
@@ -51,30 +108,13 @@ mesh = SubResource("PlaneMesh_shxum")
 [node name="Tiles" type="Node3D" parent="." groups=["grid_container"]]
 script = ExtResource("1_vx12u")
 
-[node name="Anvil" parent="Tiles" instance=ExtResource("1_abngx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 1)
-
-[node name="gatherer" type="Node3D" parent="Tiles" groups=["grid_container"]]
-
-[node name="Anvil" parent="Tiles/gatherer" instance=ExtResource("1_abngx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5)
-
-[node name="Anvil2" parent="Tiles/gatherer" instance=ExtResource("1_abngx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 3)
-
-[node name="Anvil3" parent="Tiles/gatherer" instance=ExtResource("1_abngx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 16, 2)
+[node name="Anvil2" parent="Tiles" instance=ExtResource("1_abngx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 1)
 
 [node name="Tiles" type="Node3D" parent="Tiles" groups=["grid_container"]]
 
-[node name="GrassTile" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
-[node name="GrassTile2" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
-
 [node name="GrassTile3" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 0)
 
 [node name="GrassTile4" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 1)
@@ -112,9 +152,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 0)
 [node name="GrassTile15" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 1)
 
-[node name="GrassTile16" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 2)
-
 [node name="GrassTile17" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 2)
 
@@ -130,12 +167,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 0)
 [node name="GrassTile21" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, -1)
 
-[node name="Player" parent="." instance=ExtResource("2_6u2a3")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+[node name="SpecialGrassTile" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -2)
 
-[node name="AnvilActivator" parent="." node_paths=PackedStringArray("anvil") instance=ExtResource("3_x5n1l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96642, 2.38419e-07, 2.25768)
-anvil = NodePath("../Tiles/Anvil")
+[node name="GrassTile16" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="GrassTile22" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+
+[node name="GrassTile23" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
+
+[node name="Player" parent="Tiles/Tiles" instance=ExtResource("2_6u2a3")]
+
+[node name="AnvilActivator" parent="Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("3_x5n1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+anvil = NodePath("../Anvil2")
+
+[node name="human2_anim" parent="Tiles" instance=ExtResource("7_dmygj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
 
 [node name="Quit" parent="." instance=ExtResource("5_y0fn4")]
 
