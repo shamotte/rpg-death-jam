@@ -180,13 +180,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
 
 [node name="Player" parent="Tiles/Tiles" instance=ExtResource("2_6u2a3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
 [node name="AnvilActivator" parent="Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("3_x5n1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 anvil = NodePath("../Anvil2")
 
-[node name="Quit" parent="." instance=ExtResource("5_y0fn4")]
-
-[node name="human2_anim" parent="." instance=ExtResource("7_dmygj")]
+[node name="human2_anim" parent="Tiles" instance=ExtResource("7_dmygj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Quit" parent="." instance=ExtResource("5_y0fn4")]

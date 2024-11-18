@@ -1,4 +1,5 @@
 extends GridElement
+class_name Anvil
 
 @export var falling: bool = false
 @export var move_direction : Vector3 = Vector3.ZERO
