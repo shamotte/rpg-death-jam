@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://clorfymsvn4ce"]
+[gd_scene load_steps=14 format=3 uid="uid://clorfymsvn4ce"]
 
 [ext_resource type="PackedScene" uid="uid://xeoyjwfjd2s3" path="res://objects/anvil/anvil.tscn" id="1_abngx"]
 [ext_resource type="Script" path="res://grid.gd" id="1_vx12u"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/anvil/anvil_activator.tscn" id="3_x5n1l"]
 [ext_resource type="PackedScene" uid="uid://7i2r8txvxp7f" path="res://objects/ground_tile/grass/grass_tile.tscn" id="3_yp68r"]
 [ext_resource type="PackedScene" uid="uid://3wt40i73oolg" path="res://ui/quit.tscn" id="5_y0fn4"]
+[ext_resource type="PackedScene" uid="uid://dsgpkxciyeodf" path="res://objects/table/table.glb" id="7_obr0k"]
+[ext_resource type="PackedScene" uid="uid://x8pv3nsr3ddo" path="res://objects/spikes/spikes.glb" id="8_aua58"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x8kc5"]
 sky_top_color = Color(0.283913, 0.367826, 0.934389, 1)
@@ -136,3 +138,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96642, 2.38419e-07, 2.25768
 anvil = NodePath("../Tiles/Anvil")
 
 [node name="Quit" parent="." instance=ExtResource("5_y0fn4")]
+
+[node name="table" parent="." instance=ExtResource("7_obr0k")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.09687, 0, -2.06901)
+
+[node name="spikes" parent="." instance=ExtResource("8_aua58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.10629, 0.014918, 1.03615)
