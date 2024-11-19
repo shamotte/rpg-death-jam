@@ -49,12 +49,14 @@ visible = false
 mesh = SubResource("PlaneMesh_shxum")
 
 [node name="Tiles" type="Node3D" parent="." groups=["grid_container"]]
+process_priority = -1
 script = ExtResource("1_vx12u")
 
 [node name="Anvil2" parent="Tiles" instance=ExtResource("1_abngx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 1)
 
 [node name="Tiles" type="Node3D" parent="Tiles" groups=["grid_container"]]
+process_priority = -1
 
 [node name="GrassTile3" parent="Tiles/Tiles" instance=ExtResource("3_yp68r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 0)

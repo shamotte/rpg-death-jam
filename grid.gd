@@ -87,11 +87,17 @@ func add_children_to_grid_req(node : Node3D):
 		
 	if node.is_in_group("grid_container"):
 		for child : Node3D in node.get_children():
+			
 			add_children_to_grid_req(child)
 	elif node.is_in_group("grid_element"):
-		var grid_position : Vector3i = node.position
-		world[grid_position.x + min_x][grid_position.y+ min_y][grid_position.z + min_z] = node;
-		node.set_meta("test",true)
+		var elem = node as GridElement
+		for size_x in range(elem.size_on_grid.x):
+			for size_y in range(elem.size_on_grid.y):
+				for size_z in range(elem.size_on_grid.z):
+		
+					var grid_position : Vector3i = Vector3i(node.position) + Vector3i(size_x,size_y,size_z)
+					world[grid_position.x + min_x][grid_position.y+ min_y][grid_position.z + min_z] = node;
+				
 
 
 func tick_on_grid(time_steps : int):
@@ -146,7 +152,7 @@ func get_cell_content_world(position : Vector3i):
 	else :
 		return null
 	
-func set_cell_context(position : Vector3i, element: GridElement)-> bool:
+func set_cell_context_world(position : Vector3i, element: GridElement)-> bool:
 	if (position.x + min_x >= world_size_x || position.x + min_x < 0):
 		return false;
 	if (position.y + min_y >= world_size_y || position.y + min_y < 0):
@@ -155,6 +161,17 @@ func set_cell_context(position : Vector3i, element: GridElement)-> bool:
 		return false;
 	
 	world[position.x + min_x][position.y + min_y][position.z + min_z] = element
+	return true
+	
+func set_cell_context_grid(position : Vector3i, element: GridElement)-> bool:
+	if (position.x >= world_size_x || position.x  < 0):
+		return false;
+	if (position.y >= world_size_y || position.y  < 0):
+		return false;
+	if (position.z >= world_size_z || position.z < 0):
+		return false;
+	
+	world[position.x][position.y][position.z] = element
 	return true
 
 
@@ -172,7 +189,7 @@ func move_on_grid(position : Vector3i, size : Vector3i, element : GridElement, d
 		for size_x in range(size.x):
 			for size_y in range(size.y):
 				for size_z in range(size.z):
-					if not set_cell_context(position + Vector3i(size_x,size_y,size_z) + direction,element):
+					if not set_cell_context_world(position + Vector3i(size_x,size_y,size_z) + direction,element):
 						printerr("element left the grid");
 						element.queue_free()
 		return position + direction

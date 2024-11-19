@@ -23,6 +23,7 @@ func _ready():
 	grid_position = position
 	Grid.reset_update.connect(reset_update)
 
+				
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
