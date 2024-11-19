@@ -175,14 +175,20 @@ func set_cell_context_grid(position : Vector3i, element: GridElement)-> bool:
 	return true
 
 
+
+
 func move_on_grid(position : Vector3i, size : Vector3i, element : GridElement, direction : Vector3i) -> Vector3i:
 	var object_blocked = false;
 	for size_x in range(size.x):
 		for size_y in range(size.y):
 			for size_z in range(size.z):
-				var collision = get_cell_content_world(position + Vector3i(size_x,size_y,size_z) + direction)
+				var collision :GridElement= get_cell_content_world(position + Vector3i(size_x,size_y,size_z) + direction)
 				if not (collision == null or collision == element or not is_instance_valid(collision)):
 					print(element.name +" collided with " + collision.name)
+					var receiver :Receiver = collision.get_node_or_null("MoveReceivers/" + element.prefab_name) as Receiver
+					if receiver != null:
+						receiver.interact(element)
+					
 					object_blocked = true;
 					
 	if not object_blocked:

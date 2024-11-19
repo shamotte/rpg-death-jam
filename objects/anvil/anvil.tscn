@@ -27,6 +27,7 @@ height = 10.0
 
 [node name="Anvil" type="Node3D" groups=["grid_element", "grid_solid"]]
 script = ExtResource("1_sevdb")
+prefab_name = "Anvil"
 
 [node name="Visual" type="Node3D" parent="."]
 
