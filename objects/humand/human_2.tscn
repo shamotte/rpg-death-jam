@@ -28,3 +28,6 @@ bones/17/rotation = Quaternion(0.0236442, -0.103933, -0.106446, 0.988589)
 bones/18/position = Vector3(0.125841, 0.337508, -0.000332116)
 bones/18/rotation = Quaternion(0.969956, 0.117663, -0.191978, 0.0921174)
 bones/19/rotation = Quaternion(0.0270474, 0.104756, 0.105015, 0.988568)
+
+[node name="Front_check" type="Marker3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)

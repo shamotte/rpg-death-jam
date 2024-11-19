@@ -5,4 +5,5 @@ class_name AnvilActivator
 
 func interact():
 	anvil.set_falling(true)
-	$stick_and_rope2/Rope.queue_free()
+	if is_instance_valid($stick_and_rope2/Rope):
+		$stick_and_rope2/Rope.queue_free()
