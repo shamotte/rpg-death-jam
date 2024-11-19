@@ -9,4 +9,6 @@ func _ready() -> void:
 func change_animation(new_animation : String):
 	current_animation = new_animation
 	anim.play(current_animation)
-	
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	change_animation("Idle_scythe")

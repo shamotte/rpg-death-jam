@@ -11,7 +11,8 @@ func set_falling(f: bool) -> void:
 	if falling:
 		move_direction = Vector3(0, -1, 0)
 		$Visual/Arrow.visible = true
-		$Visual/Rope.queue_free()
+		if is_instance_valid($Visual/Rope):
+			$Visual/Rope.queue_free()
 	else:
 		move_direction = Vector3(0, 0, 0)
 		$Visual/Arrow.visible = false

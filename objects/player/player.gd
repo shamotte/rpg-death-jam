@@ -1,6 +1,8 @@
 extends GridElement
 class_name Player
 
+@export var character_model : Node3D
+
 var can_move: bool = true
 
 func _input(event):
@@ -11,6 +13,8 @@ func _input(event):
 		var temp = grid_position + Vector3i(basis.z)
 		var interacting = Grid.get_grid().get_cell_content_world(temp)
 		if interacting is AnvilActivator:
+			character_model.change_animation("Interact_scythe")
+			#character_model.change_animation("attack_scythe")
 			interacting.interact()
 	
 	if event.is_action_pressed("move_left"):
@@ -69,6 +73,7 @@ func update_movement_checks():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_movement_checks()
+	character_model.change_animation("Idle_scythe")
 
 func _physics_process(delta: float) -> void:
 	pass
