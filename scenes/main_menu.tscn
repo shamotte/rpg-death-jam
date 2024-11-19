@@ -43,8 +43,10 @@ _data = {
 "loop": SubResource("Animation_dcvdk")
 }
 
-[node name="MainMenu" type="Node3D"]
+[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("level_selector", "main_menu")]
 script = ExtResource("1_p8tws")
+level_selector = NodePath("CanvasLayer/Level Select")
+main_menu = NodePath("CanvasLayer/Main Menu")
 
 [node name="human2_anim" parent="." instance=ExtResource("2_8mfyq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.140479, -0.197311, 0.0455194)
@@ -64,25 +66,76 @@ offset_bottom = 40.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="StartGame" type="Button" parent="CanvasLayer"]
+[node name="Level Select" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartGame2" type="Button" parent="CanvasLayer/Level Select"]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = -135.0
+offset_top = 473.0
 offset_right = 182.0
-offset_bottom = -81.0
+offset_bottom = 527.0
+grow_vertical = 0
+text = "Level 1"
+
+[node name="Exit2" type="Button" parent="CanvasLayer/Level Select"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 538.0
+offset_right = 182.0
+offset_bottom = 592.0
+grow_vertical = 0
+text = "Back
+"
+
+[node name="Main Menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartGame" type="Button" parent="CanvasLayer/Main Menu"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 407.0
+offset_right = 182.0
+offset_bottom = 461.0
 grow_vertical = 0
 text = "Start Game"
 
-[node name="Exit" type="Button" parent="CanvasLayer"]
+[node name="Select Level" type="Button" parent="CanvasLayer/Main Menu"]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = -70.0
+offset_top = 473.0
 offset_right = 182.0
-offset_bottom = -16.0
+offset_bottom = 527.0
+grow_vertical = 0
+text = "Select Level"
+
+[node name="Exit" type="Button" parent="CanvasLayer/Main Menu"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 538.0
+offset_right = 182.0
+offset_bottom = 592.0
 grow_vertical = 0
 text = "Quit
 "
@@ -99,5 +152,8 @@ libraries = {
 "": SubResource("AnimationLibrary_5iepk")
 }
 
-[connection signal="pressed" from="CanvasLayer/StartGame" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/StartGame2" to="." method="_on_start_game_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/Exit2" to="." method="_on_exit_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main Menu/StartGame" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main Menu/Select Level" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main Menu/Exit" to="." method="_on_exit_pressed"]
