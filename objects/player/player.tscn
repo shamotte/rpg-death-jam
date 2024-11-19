@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_82gfj"]
 [ext_resource type="PackedScene" uid="uid://dtcat5osfxowp" path="res://components/comp_parent_lerp.tscn" id="2_0k7af"]
-[ext_resource type="PackedScene" uid="uid://dahp5ue2jeouo" path="res://objects/player/death_model.tscn" id="3_crguq"]
+[ext_resource type="PackedScene" path="res://objects/player/death_model.tscn" id="3_crguq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g4dq6"]
 
