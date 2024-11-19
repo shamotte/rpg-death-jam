@@ -15,5 +15,11 @@ func change_animation(new_animation : String):
 func move_time_steps(time_steps : int):
 
 	print(Grid.get_grid().get_cell_content_world(global_position))
-	if Grid.get_grid().get_cell_content_world(global_position) is Anvil:
-		change_animation("Dead")
+
+		
+
+
+
+func dead(data : Variant = null):
+	change_animation("Dead")
+	queue_free()

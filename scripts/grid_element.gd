@@ -3,6 +3,8 @@ class_name GridElement
 
 @export var grid_position : Vector3i = Vector3i.ZERO
 @export var size_on_grid : Vector3i = Vector3i.ONE
+
+@export var prefab_name : String
 var updated = false
 
 func reset_update():

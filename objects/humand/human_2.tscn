@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dap2eh4muy6or"]
+[gd_scene load_steps=4 format=3 uid="uid://dap2eh4muy6or"]
 
 [ext_resource type="PackedScene" uid="uid://dqdbwffnvr5kk" path="res://objects/humand/human2_anim.glb" id="1_4llqj"]
 [ext_resource type="Script" path="res://objects/humand/human.gd" id="2_rqx5w"]
+[ext_resource type="Script" path="res://scripts/receiver.gd" id="3_anuia"]
 
 [node name="human2_anim" node_paths=PackedStringArray("anim") groups=["grid_element"] instance=ExtResource("1_4llqj")]
 script = ExtResource("2_rqx5w")
@@ -29,3 +30,10 @@ bones/17/rotation = Quaternion(0.0236442, -0.103933, -0.106446, 0.988589)
 bones/18/position = Vector3(0.125841, 0.337508, -0.000332116)
 bones/18/rotation = Quaternion(0.969956, 0.117663, -0.191978, 0.0921174)
 bones/19/rotation = Quaternion(0.0270474, 0.104756, 0.105015, 0.988568)
+
+[node name="MoveReceivers" type="Node" parent="." index="3"]
+
+[node name="Anvil" type="Node" parent="MoveReceivers" index="0"]
+script = ExtResource("3_anuia")
+
+[connection signal="interaction" from="MoveReceivers/Anvil" to="." method="dead"]
