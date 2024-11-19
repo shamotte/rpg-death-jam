@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bpk1g2le14elq" path="res://objects/humand/woman.glb" id="1_f1icd"]
 [ext_resource type="Script" path="res://scripts/animator.gd" id="2_jch76"]
 
-[node name="woman" node_paths=PackedStringArray("anim") instance=ExtResource("1_f1icd")]
+[node name="Woman" node_paths=PackedStringArray("anim") instance=ExtResource("1_f1icd")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.17049, 0)
 script = ExtResource("2_jch76")
 anim = NodePath("AnimationPlayer")

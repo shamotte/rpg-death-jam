@@ -1,13 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://kcne7vfwqlht"]
+[gd_scene load_steps=8 format=3 uid="uid://kcne7vfwqlht"]
 
 [ext_resource type="Script" path="res://objects/anvil/anvil_activator.gd" id="1_6qtfg"]
+[ext_resource type="PackedScene" uid="uid://dgj2oln8k6lj1" path="res://objects/stick_with_rope/stick_and_rope2.glb" id="2_1chpt"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_pnmnl"]
-height = 1.0
+[sub_resource type="Gradient" id="Gradient_0hku5"]
+colors = PackedColorArray(0.439049, 0.439049, 0.439049, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gidfe"]
+frequency = 0.0089
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yka1f"]
+color_ramp = SubResource("Gradient_0hku5")
+noise = SubResource("FastNoiseLite_gidfe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xkbt2"]
+albedo_color = Color(0.713558, 0.621733, 0.274311, 1)
+albedo_texture = SubResource("NoiseTexture2D_yka1f")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x7h08"]
+material = SubResource("StandardMaterial3D_xkbt2")
+top_radius = 0.025
+bottom_radius = 0.025
+height = 10.0
 
 [node name="AnvilActivator" type="Node3D" groups=["grid_element"]]
 script = ExtResource("1_6qtfg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CylinderMesh_pnmnl")
+[node name="stick_and_rope2" parent="." instance=ExtResource("2_1chpt")]
+transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 0, 0.490589, 0)
+
+[node name="Rope" type="MeshInstance3D" parent="stick_and_rope2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4, -0.03)
+mesh = SubResource("CylinderMesh_x7h08")

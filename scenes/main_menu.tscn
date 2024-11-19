@@ -1,18 +1,56 @@
-[gd_scene load_steps=4 format=3 uid="uid://b38p6p4m7hoch"]
+[gd_scene load_steps=8 format=3 uid="uid://b38p6p4m7hoch"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_p8tws"]
 [ext_resource type="PackedScene" uid="uid://dap2eh4muy6or" path="res://objects/humand/human_2.tscn" id="2_8mfyq"]
 [ext_resource type="PackedScene" uid="uid://d2yhsx83qvjan" path="res://objects/humand/woman.tscn" id="3_o0st6"]
+[ext_resource type="PackedScene" uid="uid://dahp5ue2jeouo" path="res://objects/player/death_model.tscn" id="4_pttgp"]
+
+[sub_resource type="Animation" id="Animation_3lgin"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("human2_anim:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dcvdk"]
+resource_name = "loop"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("human2_anim:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 0.8, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(-1.5708, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-1.5708, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5iepk"]
+_data = {
+"RESET": SubResource("Animation_3lgin"),
+"loop": SubResource("Animation_dcvdk")
+}
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_p8tws")
 
 [node name="human2_anim" parent="." instance=ExtResource("2_8mfyq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.140479, 0, -0.436193)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.140479, -0.197311, 0.0455194)
 
 [node name="woman" parent="." instance=ExtResource("3_o0st6")]
-transform = Transform3D(0.473409, 0, -0.160885, 0, 0.5, 0, 0.160885, 0, 0.473409, 0, 1.43746, -2.77222)
+transform = Transform3D(0.215011, 0, -0.451409, 0, 0.5, 0, 0.451409, 0, 0.215011, 0, 1.43746, -2.77222)
 current_animation = "Walk"
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -51,6 +89,15 @@ text = "Quit
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77833, 14.7559)
+
+[node name="death" parent="." instance=ExtResource("4_pttgp")]
+transform = Transform3D(0.166212, 0, -0.471565, 0, 0.5, 0, 0.471565, 0, 0.166212, 1.89411, 1.92596, -2.9221)
+current_animation = "Walk_scythe"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5iepk")
+}
 
 [connection signal="pressed" from="CanvasLayer/StartGame" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]

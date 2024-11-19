@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0blywvbkqxp1"
-path.s3tc="res://.godot/imported/ground_tile_0.png-41986b5d0d4375a12136f547f3c2ec06.s3tc.ctex"
+uid="uid://bwe6k7j56hmv4"
+path.s3tc="res://.godot/imported/lever_1.png-bbb026795270c80d21fc3af37d31c423.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "853cbf56c8714443877125c61fcb87f1"
+}
 
 [deps]
 
-source_file="res://objects/ground_tile/grass/ground_tile_0.png"
-dest_files=["res://.godot/imported/ground_tile_0.png-41986b5d0d4375a12136f547f3c2ec06.s3tc.ctex"]
+source_file="res://objects/lever/lever_1.png"
+dest_files=["res://.godot/imported/lever_1.png-bbb026795270c80d21fc3af37d31c423.s3tc.ctex"]
 
 [params]
 
