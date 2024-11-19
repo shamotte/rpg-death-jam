@@ -1,9 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://xeoyjwfjd2s3"]
+[gd_scene load_steps=10 format=3 uid="uid://xeoyjwfjd2s3"]
 
 [ext_resource type="Script" path="res://objects/anvil/anvil.gd" id="1_sevdb"]
 [ext_resource type="PackedScene" uid="uid://dtcat5osfxowp" path="res://components/comp_parent_lerp.tscn" id="3_u5m6b"]
 [ext_resource type="PackedScene" uid="uid://cvw0bqot0pk8c" path="res://objects/arrow/arrow.tscn" id="4_isk1w"]
 [ext_resource type="PackedScene" uid="uid://vs5lkq4ij5ox" path="res://objects/anvil/anvil.gltf" id="5_fvhrv"]
+
+[sub_resource type="Gradient" id="Gradient_sm054"]
+colors = PackedColorArray(0.439049, 0.439049, 0.439049, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v6mpl"]
+frequency = 0.0089
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lo5l8"]
+color_ramp = SubResource("Gradient_sm054")
+noise = SubResource("FastNoiseLite_v6mpl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5g38"]
+albedo_color = Color(0.713558, 0.621733, 0.274311, 1)
+albedo_texture = SubResource("NoiseTexture2D_lo5l8")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4qpiu"]
+material = SubResource("StandardMaterial3D_o5g38")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 10.0
 
 [node name="Anvil" type="Node3D" groups=["grid_element", "grid_solid"]]
 script = ExtResource("1_sevdb")
@@ -16,3 +36,7 @@ script = ExtResource("1_sevdb")
 
 [node name="Arrow" parent="Visual" instance=ExtResource("4_isk1w")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.75, 0)
+
+[node name="Rope" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+mesh = SubResource("CylinderMesh_4qpiu")
