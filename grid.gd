@@ -195,6 +195,7 @@ func move_on_grid(position : Vector3i, size : Vector3i, element : GridElement, d
 		for size_x in range(size.x):
 			for size_y in range(size.y):
 				for size_z in range(size.z):
+					set_cell_context_world(position + Vector3i(size_x,size_y,size_z),null)
 					if not set_cell_context_world(position + Vector3i(size_x,size_y,size_z) + direction,element):
 						printerr("element left the grid");
 						element.queue_free()
