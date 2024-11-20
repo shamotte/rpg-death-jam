@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx6snxh2uweuk"]
+
+[ext_resource type="PackedScene" uid="uid://dqdbwffnvr5kk" path="res://objects/humand/human2_anim.glb" id="1_l17p8"]
+[ext_resource type="Script" path="res://objects/humand/human_2_dead.gd" id="2_6al38"]
+[ext_resource type="PackedScene" uid="uid://dtcat5osfxowp" path="res://components/comp_parent_lerp.tscn" id="3_nddeu"]
+[ext_resource type="Script" path="res://scripts/receiver.gd" id="4_eaxpd"]
+
+[node name="human2_anim" groups=["grid_element"] instance=ExtResource("1_l17p8")]
+script = ExtResource("2_6al38")
+
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-0.00237084, -0.516108, -0.0469012)
+bones/0/rotation = Quaternion(0.0368851, -0.00138091, 0.00164509, 0.999317)
+bones/1/rotation = Quaternion(0.0930056, 0.00283333, -0.0171388, 0.995514)
+bones/3/rotation = Quaternion(-0.0195851, 0.0271611, -0.0253881, 0.999117)
+bones/4/position = Vector3(0.181543, 0.517279, 0.000473746)
+bones/5/rotation = Quaternion(0.588928, -0.166392, -0.101597, 0.784319)
+bones/6/rotation = Quaternion(0.111016, 0.76309, 0.0749054, 0.632264)
+bones/7/rotation = Quaternion(-0.1594, 0.101175, 0.10226, 0.976677)
+bones/11/rotation = Quaternion(0.641419, -0.349083, -0.23292, 0.642239)
+bones/12/rotation = Quaternion(-0.15476, -0.233102, -0.0606071, 0.958144)
+bones/13/rotation = Quaternion(-0.00459919, -0.0872547, -0.217064, 0.972239)
+bones/16/position = Vector3(-0.12355, 0.338354, 0.000325933)
+bones/16/rotation = Quaternion(0.967688, -0.153629, 0.182463, 0.0817661)
+bones/17/rotation = Quaternion(0.0536607, -0.110821, -0.098672, 0.987473)
+bones/18/position = Vector3(0.125841, 0.337508, -0.000332112)
+bones/18/rotation = Quaternion(0.971439, 0.120961, -0.189832, 0.0750939)
+bones/19/rotation = Quaternion(0.0712957, 0.110959, 0.127503, 0.98303)
+
+[node name="Cube_002" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CompParentLerp" parent="Armature" index="1" instance=ExtResource("3_nddeu")]
+
+[node name="MoveReceivers" type="Node" parent="." index="3"]
+
+[node name="Anvil" type="Node" parent="MoveReceivers" index="0"]
+script = ExtResource("4_eaxpd")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="interaction" from="MoveReceivers/Anvil" to="." method="dead"]
