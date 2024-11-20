@@ -4,6 +4,9 @@ extends Node
 var living_people : Array
 var started_unaliving :bool = false
 
+signal all_dead
+signal not_all_dead
+
 
 
 func reset_counter():
@@ -24,12 +27,14 @@ func check_end_condition():
 	if started_unaliving:
 		if living_people.is_empty():
 			print("DM","wszyscy umrali na raz")
+			all_dead.emit()
 		else:
 			print("DM","nuh uh")
 			print(living_people)
 			for person in living_people:
 				if is_instance_valid(person):
 					person.scared()
+			not_all_dead.emit()
 	else:
 		pass
 		
