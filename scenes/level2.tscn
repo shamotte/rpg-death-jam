@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/fence/fence.tscn" id="4_pilk5"]
 [ext_resource type="PackedScene" uid="uid://22p7x2edfbjw" path="res://objects/tree/tree.tscn" id="4_u8xmv"]
 [ext_resource type="PackedScene" uid="uid://dap2eh4muy6or" path="res://objects/humand/human_2.tscn" id="5_22vjw"]
-[ext_resource type="PackedScene" uid="uid://c5e5h4u44d0k5" path="res://objects/anvil/anvil_activator.tscn" id="6_q7mk1"]
+[ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/anvil/anvil_activator.tscn" id="6_q7mk1"]
 [ext_resource type="PackedScene" uid="uid://3wt40i73oolg" path="res://ui/quit.tscn" id="7_dpmr4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x8kc5"]
@@ -289,6 +289,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
 
 [node name="Human" parent="Tiles/Tiles" instance=ExtResource("5_22vjw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.0988425, 2)
+current_animation = null
+can_move = null
+grid_position = null
+prefab_name = null
 
 [node name="AnvilActivator2" parent="Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("6_q7mk1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2)

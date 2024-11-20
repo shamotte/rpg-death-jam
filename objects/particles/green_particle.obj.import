@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://73dbxndv2ehw"
+path="res://.godot/imported/green_particle.obj-5fa75e64184757dd2699547cd830ae34.mesh"
+
+[deps]
+
+files=["res://.godot/imported/green_particle.obj-5fa75e64184757dd2699547cd830ae34.mesh"]
+
+source_file="res://objects/particles/green_particle.obj"
+dest_files=["res://.godot/imported/green_particle.obj-5fa75e64184757dd2699547cd830ae34.mesh", "res://.godot/imported/green_particle.obj-5fa75e64184757dd2699547cd830ae34.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

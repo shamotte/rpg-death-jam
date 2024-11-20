@@ -20,6 +20,7 @@ var world_margin = 10
 
 func _ready():
 	Grid.set_grid(self)
+	DeathManager.reset_counter()
 	
 	#region gthering world size (in other world monstrocity)
 	
@@ -59,11 +60,12 @@ func _ready():
 	
 	
 	add_children_to_grid_req(self)
-
-#endregion
-	
+	#endregion
 
 	TimeManager.time_tick.connect(tick_on_grid)
+	
+	
+
 
 	
 

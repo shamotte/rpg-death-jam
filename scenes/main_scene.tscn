@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://clorfymsvn4ce"]
+[gd_scene load_steps=13 format=3 uid="uid://clorfymsvn4ce"]
 
 [ext_resource type="PackedScene" uid="uid://xeoyjwfjd2s3" path="res://objects/anvil/anvil.tscn" id="1_abngx"]
-[ext_resource type="PackedScene" uid="uid://qsxcvbwshvtc" path="res://objects/camera/camera.tscn" id="1_dy41q"]
 [ext_resource type="Script" path="res://grid.gd" id="1_vx12u"]
 [ext_resource type="PackedScene" uid="uid://cxo04kudaw137" path="res://objects/player/player.tscn" id="2_6u2a3"]
-[ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/anvil/anvil_activator.tscn" id="3_x5n1l"]
+[ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/fence/fence.tscn" id="3_x5n1l"]
 [ext_resource type="PackedScene" uid="uid://7i2r8txvxp7f" path="res://objects/ground_tile/grass/grass_tile.tscn" id="3_yp68r"]
 [ext_resource type="PackedScene" uid="uid://dap2eh4muy6or" path="res://objects/humand/human_2.tscn" id="5_ei7js"]
 [ext_resource type="PackedScene" uid="uid://3wt40i73oolg" path="res://ui/quit.tscn" id="5_y0fn4"]
@@ -31,7 +30,7 @@ albedo_color = Color(0.560784, 0.792157, 0.278431, 1)
 material = SubResource("StandardMaterial3D_nalih")
 size = Vector2(10, 10)
 
-[node name="World" type="Node3D"]
+[node name="World2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g0drt")
@@ -42,7 +41,9 @@ light_color = Color(0.999787, 0.86806, 0, 1)
 light_energy = 0.238
 shadow_enabled = true
 
-[node name="Camera" parent="." instance=ExtResource("1_dy41q")]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.942286, 0.33481, 0, -0.33481, 0.942286, 0, 4.35403, 8.19795)
+current = true
 
 [node name="Plane" type="MeshInstance3D" parent="."]
 visible = false
@@ -129,8 +130,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
 [node name="Human" parent="Tiles/Tiles" instance=ExtResource("5_ei7js")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0988425, 1)
 
-[node name="AnvilActivator2" parent="Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("3_x5n1l")]
+[node name="AnvilActivator" parent="Tiles" instance=ExtResource("3_x5n1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
-anvil = NodePath("../Anvil2")
 
 [node name="Quit" parent="." instance=ExtResource("5_y0fn4")]
