@@ -275,9 +275,6 @@ anvil = NodePath("../Anvil2")
 
 [node name="Quit" parent="." instance=ExtResource("7_dpmr4")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UI" parent="CanvasLayer" instance=ExtResource("11_jssll")]
 [node name="Fence" parent="." instance=ExtResource("10_w45sn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, -2)
 
