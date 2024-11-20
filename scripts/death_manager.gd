@@ -27,7 +27,7 @@ func check_end_condition():
 		else:
 			print("DM","nuh uh")
 	else:
-		print("DM","rzeź się jeszcze nie zaczęła")
+		
 	
 
 
