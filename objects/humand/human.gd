@@ -13,6 +13,9 @@ func _ready() -> void:
 	anim.play(current_animation)
 	super._ready()
 	move_direction = Vector3i(basis.z)
+	
+	await get_tree().process_frame
+	await null
 	DeathManager.register_victim(self)
 
 func change_animation(new_animation : String):
