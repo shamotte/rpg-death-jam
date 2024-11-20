@@ -10,13 +10,13 @@ func reset_counter():
 	living_people.clear()
 	
 func register_victim(victim):
-	if victim not in living_people:
-		living_people.append(victim)
+	living_people.append(victim)
+	print("huh")
 	
 	
 func unalive(victim):
-	living_people.erase(self)
 	started_unaliving = true
+	living_people.erase(self)
 	
 
 
