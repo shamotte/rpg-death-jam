@@ -5,8 +5,8 @@ class_name Human
 @export var current_animation : String = "Idle"
 @export var can_move : bool
 
+var dead_model = preload("res://objects/humand/human_2_dead.tscn")
 
-var is_dead : bool = false
 var move_direction : Vector3i 
 
 func _ready() -> void:
@@ -35,10 +35,7 @@ func set_moving(moving : bool):
 	can_move = moving
 
 func dead(data : Variant = null):
-	$DeadTimer.start()
-
-func _on_dead_timer_timeout() -> void:
-	if !is_dead:
-		is_dead = true
-		change_animation("Dead")
-	#queue_free()
+	queue_free()
+	var d = dead_model.instantiate()
+	d.global_position = global_position
+	get_parent().add_child(d)
