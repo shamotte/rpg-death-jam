@@ -43,6 +43,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.942286, 0.33481, 0, -0.33481, 0.942286, 0, 4.35403, 8.19795)
+current = true
 
 [node name="Plane" type="MeshInstance3D" parent="."]
 visible = false

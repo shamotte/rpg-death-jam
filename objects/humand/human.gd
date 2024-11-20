@@ -3,6 +3,7 @@ class_name Human
 
 @export var anim : AnimationPlayer
 @export var current_animation : String = "Idle"
+@export var can_move : bool
 
 var move_direction : Vector3i 
 
@@ -16,9 +17,8 @@ func change_animation(new_animation : String):
 	anim.play(current_animation)
 	
 func move_time_steps(time_steps : int):
-	print("H grid ",Grid.get_grid().get_cell_content_grid(Vector3i(self.position) + Vector3i(basis.z) - Vector3i(basis.y)))
-	print("H grid",Grid.get_grid().get_cell_content_world(Vector3i(self.position) + Vector3i(basis.z) - Vector3i(basis.y)))
-	print("H pos",grid_position + Vector3i(basis.z) - Vector3i(basis.y))
+	if !can_move:
+		return
 	if Grid.get_grid().get_cell_content_world(Vector3i(self.position) + Vector3i(basis.z) - Vector3i(basis.y)) is not GroundTile:
 		self.rotation.y += deg_to_rad(180)
 		move_direction = Vector3i(basis.z)
@@ -29,9 +29,8 @@ func move_time_steps(time_steps : int):
 			
 	print(Grid.get_grid().get_cell_content_world(global_position))
 
-		
-
-
+func set_moving(moving : bool):
+	can_move = moving
 
 func dead(data : Variant = null):
 	change_animation("Dead")

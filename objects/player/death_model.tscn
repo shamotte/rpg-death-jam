@@ -2265,7 +2265,7 @@ bones/33/rotation = Quaternion(0.980091, -0.0157436, -0.146878, -0.132666)
 bones/34/rotation = Quaternion(0.112366, 0.116988, -0.0479307, 0.985591)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/GeneralSkeleton" index="1"]
-transform = Transform3D(0.01667, 0.131521, -0.991172, -0.991384, -0.126634, -0.033477, -0.129919, 0.983191, 0.128277, -1.00061, -0.808185, 1.01775)
+transform = Transform3D(0.0166701, 0.131522, -0.991172, -0.991384, -0.126633, -0.0334768, -0.129918, 0.983192, 0.128278, -1.00061, -0.808184, 1.01775)
 bone_name = "Bone.38"
 bone_idx = 9
 
@@ -2288,5 +2288,3 @@ visible = false
 libraries = {
 "": SubResource("AnimationLibrary_licmt")
 }
-
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
