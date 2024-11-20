@@ -59,11 +59,12 @@ func _ready():
 	
 	
 	add_children_to_grid_req(self)
-
-#endregion
-	
+	#endregion
 
 	TimeManager.time_tick.connect(tick_on_grid)
+	DeathManager.reset_counter()
+	
+
 
 	
 
