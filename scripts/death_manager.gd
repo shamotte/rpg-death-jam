@@ -26,6 +26,10 @@ func check_end_condition():
 			print("DM","wszyscy umrali na raz")
 		else:
 			print("DM","nuh uh")
+			print(living_people)
+			for person in living_people:
+				if is_instance_valid(person):
+					person.scared()
 	else:
 		pass
 		
