@@ -16,9 +16,11 @@ func _input(event):
 			character_model.change_animation("Interact_scythe")
 			#character_model.change_animation("attack_scythe")
 			interacting.interact()
+			TimeManager.progres_time(1)
 		if interacting is Human:
 			character_model.change_animation("attack_scythe")
 			interacting.dead()
+			TimeManager.progres_time(1)
 			#character_model.change_animation("attack_scythe")
 	
 	if event.is_action_pressed("move_left"):
