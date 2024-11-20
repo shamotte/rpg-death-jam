@@ -38,4 +38,5 @@ func dead(data : Variant = null):
 	queue_free()
 	var d = dead_model.instantiate()
 	d.global_position = global_position
+	d.global_rotation = global_rotation
 	get_parent().add_child(d)
