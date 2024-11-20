@@ -31,7 +31,7 @@ albedo_color = Color(0.560784, 0.792157, 0.278431, 1)
 material = SubResource("StandardMaterial3D_nalih")
 size = Vector2(10, 10)
 
-[node name="World" type="Node3D"]
+[node name="World3" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g0drt")
@@ -329,3 +329,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.0988425, -1)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("8_ihasq")]
+current_level = "1"
+next_level = "2"
