@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://22p7x2edfbjw"]
+
+[ext_resource type="Script" path="res://objects/fence/fence.gd" id="1_dllkv"]
+[ext_resource type="PackedScene" uid="uid://c5sllvv8c1xj6" path="res://objects/tree/tree.glb" id="2_w81hf"]
+
+[node name="Tree" type="Node3D" groups=["grid_element"]]
+script = ExtResource("1_dllkv")
+
+[node name="tree" parent="." instance=ExtResource("2_w81hf")]

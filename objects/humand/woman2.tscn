@@ -1,12 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dap2eh4muy6or"]
+[gd_scene load_steps=6 format=3 uid="uid://cs04j5bksjxj4"]
 
-[ext_resource type="PackedScene" uid="uid://dqdbwffnvr5kk" path="res://objects/humand/human2_anim.glb" id="1_4llqj"]
-[ext_resource type="Script" path="res://objects/humand/human.gd" id="2_rqx5w"]
-[ext_resource type="Script" path="res://scripts/receiver.gd" id="3_anuia"]
-[ext_resource type="PackedScene" uid="uid://dtcat5osfxowp" path="res://components/comp_parent_lerp.tscn" id="3_pyhqk"]
+[ext_resource type="PackedScene" uid="uid://dqdbwffnvr5kk" path="res://objects/humand/human2_anim.glb" id="1_y0dt3"]
+[ext_resource type="Script" path="res://objects/humand/human.gd" id="2_axox8"]
+[ext_resource type="PackedScene" uid="uid://dtcat5osfxowp" path="res://components/comp_parent_lerp.tscn" id="3_clt3y"]
+[ext_resource type="Script" path="res://scripts/receiver.gd" id="4_rr2hr"]
+[ext_resource type="PackedScene" uid="uid://bpk1g2le14elq" path="res://objects/humand/woman.glb" id="5_bf0ak"]
 
-[node name="human" node_paths=PackedStringArray("anim") groups=["grid_element"] instance=ExtResource("1_4llqj")]
-script = ExtResource("2_rqx5w")
+[node name="human" node_paths=PackedStringArray("anim") groups=["grid_element"] instance=ExtResource("1_y0dt3")]
+script = ExtResource("2_axox8")
 anim = NodePath("AnimationPlayer")
 
 [node name="Armature" parent="." index="0"]
@@ -35,14 +36,16 @@ bones/19/rotation = Quaternion(0.0712957, 0.110959, 0.127503, 0.98303)
 [node name="Cube_002" parent="Armature/Skeleton3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0916255, 0)
 
-[node name="CompParentLerp" parent="Armature" index="1" instance=ExtResource("3_pyhqk")]
+[node name="CompParentLerp" parent="Armature" index="1" instance=ExtResource("3_clt3y")]
 
 [node name="MoveReceivers" type="Node" parent="." index="3"]
 
 [node name="Anvil" type="Node" parent="MoveReceivers" index="0"]
-script = ExtResource("3_anuia")
+script = ExtResource("4_rr2hr")
 
 [node name="DeadTimer" type="Timer" parent="." index="4"]
+
+[node name="woman" parent="." index="5" instance=ExtResource("5_bf0ak")]
 
 [connection signal="interaction" from="MoveReceivers/Anvil" to="." method="dead"]
 [connection signal="timeout" from="DeadTimer" to="." method="_on_dead_timer_timeout"]

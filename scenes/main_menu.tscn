@@ -77,7 +77,31 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="StartGame2" type="Button" parent="CanvasLayer/Level Select"]
+[node name="Level1" type="Button" parent="CanvasLayer/Level Select"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 342.0
+offset_right = 182.0
+offset_bottom = 396.0
+grow_vertical = 0
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="CanvasLayer/Level Select"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 407.0
+offset_right = 182.0
+offset_bottom = 461.0
+grow_vertical = 0
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="CanvasLayer/Level Select"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -87,7 +111,7 @@ offset_top = 473.0
 offset_right = 182.0
 offset_bottom = 527.0
 grow_vertical = 0
-text = "Level 1"
+text = "Level 3"
 
 [node name="Exit2" type="Button" parent="CanvasLayer/Level Select"]
 layout_mode = 1
@@ -103,6 +127,7 @@ text = "Back
 "
 
 [node name="Main Menu" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -151,13 +176,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77833, 14.7559)
 [node name="death" parent="." instance=ExtResource("4_pttgp")]
 transform = Transform3D(0.166212, 0, -0.471565, 0, 0.5, 0, 0.471565, 0, 0.166212, 1.89411, 1.92596, -2.9221)
 current_animation = "Walk_scythe"
+reset_animation = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_5iepk")
 }
 
-[connection signal="pressed" from="CanvasLayer/Level Select/StartGame2" to="." method="_on_start_game_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/Level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Level Select/Exit2" to="." method="_on_exit_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/StartGame" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/Select Level" to="." method="_on_select_level_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://kcne7vfwqlht"]
+[gd_scene load_steps=8 format=3 uid="uid://c5e5h4u44d0k5"]
 
 [ext_resource type="Script" path="res://objects/anvil/anvil_activator.gd" id="1_6qtfg"]
 [ext_resource type="PackedScene" uid="uid://dgj2oln8k6lj1" path="res://objects/stick_with_rope/stick_and_rope2.glb" id="2_1chpt"]
