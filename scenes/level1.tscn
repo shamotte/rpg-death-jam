@@ -322,9 +322,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
 
 [node name="Human" parent="Tiles/Tiles" instance=ExtResource("5_ydnub")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.0988425, -1)
-current_animation = null
-can_move = null
-grid_position = null
-prefab_name = null
 
 [node name="Quit" parent="." instance=ExtResource("7_wvfgd")]

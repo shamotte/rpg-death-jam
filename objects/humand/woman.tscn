@@ -8,11 +8,6 @@
 [node name="woman" node_paths=PackedStringArray("anim") groups=["grid_element"] instance=ExtResource("1_f1icd")]
 script = ExtResource("2_j7lyh")
 anim = NodePath("AnimationPlayer")
-current_animation = null
-can_move = null
-grid_position = null
-size_on_grid = null
-prefab_name = null
 
 [node name="CompParentLerp" parent="WomanArmature" index="1" instance=ExtResource("3_kct53")]
 

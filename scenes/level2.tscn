@@ -289,10 +289,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
 
 [node name="Human" parent="Tiles/Tiles" instance=ExtResource("5_22vjw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.0988425, 2)
-current_animation = null
-can_move = null
-grid_position = null
-prefab_name = null
+current_animation = "Idle"
+can_move = false
+grid_position = Vector3i(0, 0, 0)
+prefab_name = ""
 
 [node name="AnvilActivator2" parent="Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("6_q7mk1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2)

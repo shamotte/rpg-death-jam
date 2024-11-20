@@ -8,11 +8,7 @@
 [node name="human" node_paths=PackedStringArray("anim") groups=["grid_element"] instance=ExtResource("1_4llqj")]
 script = ExtResource("2_rqx5w")
 anim = NodePath("AnimationPlayer")
-current_animation = null
-can_move = null
-grid_position = null
 size_on_grid = Vector3i(1, 2, 1)
-prefab_name = null
 
 [node name="Armature" parent="." index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
