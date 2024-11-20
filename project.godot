@@ -21,6 +21,11 @@ TimeManager="*res://scripts/time_manager.gd"
 Grid="*res://scripts/global_grid.gd"
 MusicManager="*res://music/MusicManager.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [filesystem]
 
 import/blender/enabled=false
