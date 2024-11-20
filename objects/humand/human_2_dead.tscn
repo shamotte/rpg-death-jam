@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx6snxh2uweuk"]
+[gd_scene load_steps=4 format=3 uid="uid://cljji5rwyg4br"]
 
 [ext_resource type="PackedScene" uid="uid://dqdbwffnvr5kk" path="res://objects/humand/human2_anim.glb" id="1_l17p8"]
 [ext_resource type="Script" path="res://objects/humand/human_2_dead.gd" id="2_6al38"]

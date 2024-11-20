@@ -1,15 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://ckmo401gqmyt7"]
+[gd_scene load_steps=16 format=3 uid="uid://ckmo401gqmyt7"]
 
 [ext_resource type="Script" path="res://grid.gd" id="1_r0jyi"]
 [ext_resource type="PackedScene" uid="uid://qsxcvbwshvtc" path="res://objects/camera/camera.tscn" id="1_sleoe"]
 [ext_resource type="PackedScene" uid="uid://xeoyjwfjd2s3" path="res://objects/anvil/anvil.tscn" id="2_a65fq"]
 [ext_resource type="PackedScene" uid="uid://7i2r8txvxp7f" path="res://objects/ground_tile/grass/grass_tile.tscn" id="3_m0fyh"]
 [ext_resource type="PackedScene" uid="uid://cxo04kudaw137" path="res://objects/player/player.tscn" id="4_au7gg"]
-[ext_resource type="PackedScene" path="res://objects/tree/tree.tscn" id="4_u8xmv"]
+[ext_resource type="PackedScene" uid="uid://22p7x2edfbjw" path="res://objects/tree/tree.tscn" id="4_u8xmv"]
 [ext_resource type="PackedScene" uid="uid://dap2eh4muy6or" path="res://objects/humand/human_2.tscn" id="5_22vjw"]
-[ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/anvil/anvil_activator.tscn" id="6_q7mk1"]
 [ext_resource type="PackedScene" uid="uid://3wt40i73oolg" path="res://ui/quit.tscn" id="7_dpmr4"]
-[ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/fence/fence.tscn" id="10_w45sn"]
+[ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/anvil/anvil_activator.tscn" id="10_w45sn"]
+[ext_resource type="PackedScene" uid="uid://cctfmh38ompte" path="res://interface/game_ui.tscn" id="11_jssll"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x8kc5"]
 sky_top_color = Color(0.283913, 0.367826, 0.934389, 1)
@@ -269,7 +269,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
 [node name="Human" parent="Tiles/Tiles" instance=ExtResource("5_22vjw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.0988425, 2)
 
-[node name="AnvilActivator2" parent="Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("6_q7mk1")]
+[node name="AnvilActivator2" parent="Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("10_w45sn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2)
 anvil = NodePath("../Anvil2")
 
@@ -304,3 +304,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, 
 
 [node name="Fence10" parent="." instance=ExtResource("10_w45sn")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("11_jssll")]
