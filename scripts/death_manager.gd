@@ -17,8 +17,8 @@ func register_victim(victim):
 	
 func unalive(victim):
 	started_unaliving = true
-	living_people.erase(self)
-	
+	living_people.erase(victim)
+	print("heee")
 
 
 func check_end_condition():
