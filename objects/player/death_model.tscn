@@ -2304,12 +2304,12 @@ bones/33/rotation = Quaternion(0.988231, -0.0401221, -0.140317, 0.0458255)
 bones/34/rotation = Quaternion(0.0102662, 0.122539, -0.032294, 0.991885)
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Armature/GeneralSkeleton" index="1"]
-transform = Transform3D(6.57048e-07, -0.999999, -4.10165e-07, 3.44292e-07, -3.00366e-07, 0.999999, -0.999999, -5.75092e-07, 4.24702e-07, -1.93292, -0.127291, 0.00073489)
+transform = Transform3D(0.0238287, -0.322212, -0.946367, 0.0105439, -0.946502, 0.322523, -0.99966, -0.0176638, -0.0191565, -1.00061, -1.41593, 0.00073534)
 bone_name = "Bone.38"
 bone_idx = 9
 
 [node name="Particles" type="BoneAttachment3D" parent="Armature/GeneralSkeleton" index="2"]
-transform = Transform3D(0.144061, 0.711251, 0.688016, 0.0959526, -0.702033, 0.70565, 0.984905, -0.0356397, -0.169382, 0.958839, -1.44124, 0.0253655)
+transform = Transform3D(0.144061, 0.711251, 0.688016, 0.0959527, -0.702033, 0.70565, 0.984905, -0.0356397, -0.169382, 0.958839, -1.44124, 0.0253657)
 bone_name = "Bone.25"
 bone_idx = 24
 
@@ -2324,7 +2324,7 @@ draw_pass_1 = SubResource("SphereMesh_fg7ug")
 draw_skin = SubResource("Skin_p2q1x")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/GeneralSkeleton" index="3"]
-transform = Transform3D(6.57048e-07, -0.999999, -4.10165e-07, 3.44292e-07, -3.00366e-07, 0.999999, -0.999999, -5.75092e-07, 4.24702e-07, -1.93292, -0.127291, 0.00073489)
+transform = Transform3D(0.0238287, -0.322212, -0.946367, 0.0105439, -0.946502, 0.322523, -0.99966, -0.0176638, -0.0191565, -1.00061, -1.41593, 0.00073534)
 bone_name = "Bone.38"
 bone_idx = 9
 

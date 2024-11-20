@@ -6,6 +6,8 @@ extends Control
 func _ready():
 	win_panel.visible = false
 	lose_panel.visible = false
+	DeathManager.connect("all_dead",win)
+	DeathManager.connect("not_all_dead",lose)
 
 func win():
 	win_panel.visible = true
