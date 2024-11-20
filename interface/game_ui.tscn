@@ -15,28 +15,14 @@ lose_panel = NodePath("LosePanel")
 
 [node name="WinPanel" parent="." instance=ExtResource("2_5fdnd")]
 layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 259.0
-offset_bottom = 145.0
-grow_horizontal = 1
-grow_vertical = 1
+offset_left = 451.0
+offset_top = 210.0
+offset_right = 710.0
+offset_bottom = 355.0
 
 [node name="LosePanel" parent="." instance=ExtResource("3_q6de3")]
 layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 259.0
-offset_bottom = 145.0
-grow_horizontal = 1
-grow_vertical = 1
+offset_left = 451.0
+offset_top = 210.0
+offset_right = 710.0
+offset_bottom = 355.0
