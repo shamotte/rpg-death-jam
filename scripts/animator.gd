@@ -11,6 +11,8 @@ func _ready() -> void:
 func change_animation(new_animation : String):
 	current_animation = new_animation
 	anim.play(current_animation)
+	if new_animation == "Interact" or new_animation == "Interact_scythe":
+		$Armature/GeneralSkeleton/Particles/GPUParticles3D.emitting = true	 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	print("end anim")
