@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cctfmh38ompte"]
+
+[ext_resource type="Script" path="res://interface/ui.gd" id="1_4lf7x"]
+[ext_resource type="PackedScene" uid="uid://bql06l0cfkaeh" path="res://interface/win_panel.tscn" id="2_5fdnd"]
+[ext_resource type="PackedScene" uid="uid://b0nw2fot1hjc7" path="res://interface/lose_panel.tscn" id="3_q6de3"]
+
+[node name="UI" type="Control" node_paths=PackedStringArray("win_panel", "lose_panel")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_4lf7x")
+win_panel = NodePath("WinPanel")
+lose_panel = NodePath("LosePanel")
+
+[node name="WinPanel" parent="." instance=ExtResource("2_5fdnd")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 259.0
+offset_bottom = 145.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="LosePanel" parent="." instance=ExtResource("3_q6de3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 259.0
+offset_bottom = 145.0
+grow_horizontal = 1
+grow_vertical = 1

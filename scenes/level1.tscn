@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://gwci7kt8l30t"]
+[gd_scene load_steps=14 format=3 uid="uid://gwci7kt8l30t"]
 
 [ext_resource type="PackedScene" uid="uid://qsxcvbwshvtc" path="res://objects/camera/camera.tscn" id="1_6qmge"]
 [ext_resource type="Script" path="res://grid.gd" id="1_mds20"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cxo04kudaw137" path="res://objects/player/player.tscn" id="4_hm4c2"]
 [ext_resource type="PackedScene" uid="uid://dap2eh4muy6or" path="res://objects/humand/human_2.tscn" id="5_ydnub"]
 [ext_resource type="PackedScene" uid="uid://3wt40i73oolg" path="res://ui/quit.tscn" id="7_wvfgd"]
+[ext_resource type="PackedScene" uid="uid://cctfmh38ompte" path="res://interface/game_ui.tscn" id="8_ihasq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x8kc5"]
 sky_top_color = Color(0.283913, 0.367826, 0.934389, 1)
@@ -324,3 +325,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.0988425, -1)
 
 [node name="Quit" parent="." instance=ExtResource("7_wvfgd")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("8_ihasq")]
