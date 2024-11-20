@@ -188,8 +188,8 @@ func move_on_grid(position : Vector3i, size : Vector3i, element : GridElement, d
 					var receiver :Receiver = collision.get_node_or_null("MoveReceivers/" + element.prefab_name) as Receiver
 					if receiver != null:
 						receiver.interact(element)
-					
-					object_blocked = true;
+					else:
+						object_blocked = true;
 					
 	if not object_blocked:
 		for size_x in range(size.x):
