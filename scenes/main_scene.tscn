@@ -132,5 +132,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0988425, 1)
 
 [node name="AnvilActivator" parent="Tiles" instance=ExtResource("3_x5n1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+anvil = NodePath("../Anvil2")
 
 [node name="Quit" parent="." instance=ExtResource("5_y0fn4")]
