@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cljji5rwyg4br"]
+[gd_scene load_steps=4 format=3 uid="uid://dx6snxh2uweuk"]
 
 [ext_resource type="PackedScene" uid="uid://dqdbwffnvr5kk" path="res://objects/humand/human2_anim.glb" id="1_l17p8"]
 [ext_resource type="Script" path="res://objects/humand/human_2_dead.gd" id="2_6al38"]
+[ext_resource type="PackedScene" uid="uid://cctgmcayhrexj" path="res://objects/emotion/emotion.tscn" id="3_ompfe"]
 
 [node name="human2_anim" groups=["grid_element"] instance=ExtResource("1_l17p8")]
 script = ExtResource("2_6al38")
@@ -29,6 +30,9 @@ bones/18/rotation = Quaternion(0.971439, 0.120961, -0.189832, 0.0750939)
 bones/19/rotation = Quaternion(0.0712957, 0.110959, 0.127503, 0.98303)
 
 [node name="Cube_002" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Emotion" parent="." index="3" instance=ExtResource("3_ompfe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

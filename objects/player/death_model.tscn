@@ -2265,7 +2265,53 @@ script = ExtResource("2_t7ix3")
 anim = NodePath("AnimationPlayer")
 current_animation = "Idle_scythe"
 
-[node name="Armature_GeneralSkeleton_Scythe_Empty2#Scythe" type="MeshInstance3D" parent="." index="0"]
+[node name="GeneralSkeleton" parent="Armature" index="0"]
+bones/0/position = Vector3(-0.0382841, -2.88771, -4.90866e-07)
+bones/0/rotation = Quaternion(-1.925e-05, -0.00439866, -0.00439866, 0.999981)
+bones/1/rotation = Quaternion(0.978683, 0.150364, 0.135667, 0.0341281)
+bones/2/rotation = Quaternion(0.000396713, -0.129439, 0.124754, 0.983708)
+bones/3/rotation = Quaternion(-8.91507e-05, -0.0060163, -0.00601575, 0.999964)
+bones/4/position = Vector3(6.14627e-10, 0.525153, 6.17992e-13)
+bones/4/rotation = Quaternion(6.08515e-05, 0.00351615, 0.00351565, 0.999988)
+bones/5/rotation = Quaternion(0.554456, -0.503569, -0.511268, -0.421429)
+bones/6/rotation = Quaternion(0.0348811, -0.0340295, -0.0138528, 0.998716)
+bones/7/rotation = Quaternion(0.0114379, -0.0114492, 0.000525587, 0.999869)
+bones/9/rotation = Quaternion(-1.91473e-10, -9.05772e-12, -0.00256958, 0.999997)
+bones/10/rotation = Quaternion(-0.00705736, 0.00705745, 0.303686, 0.95272)
+bones/11/rotation = Quaternion(0.00273448, -0.00627775, -0.0251754, 0.99966)
+bones/12/rotation = Quaternion(6.49887e-10, -7.05854e-10, 0.00863865, 0.999963)
+bones/13/rotation = Quaternion(-2.73435e-09, 3.14795e-09, -0.0375672, 0.999294)
+bones/14/rotation = Quaternion(-1.33422e-08, 3.55625e-08, -0.367738, 0.929929)
+bones/15/rotation = Quaternion(7.43119e-09, 1.5081e-08, -0.00151777, 0.999999)
+bones/16/rotation = Quaternion(5.54571e-08, -1.49842e-09, 0.723102, 0.690741)
+bones/17/rotation = Quaternion(-3.08082e-10, 6.31646e-10, -0.00384643, 0.999993)
+bones/18/rotation = Quaternion(-0.00046811, -0.01581, -0.0158051, 0.99975)
+bones/19/rotation = Quaternion(0.000386834, 0.0151116, 0.012758, 0.999804)
+bones/20/rotation = Quaternion(0.554455, 0.505309, 0.497706, -0.43535)
+bones/21/rotation = Quaternion(0.0348811, 0.0340295, 0.0138528, 0.998716)
+bones/22/rotation = Quaternion(0.0114379, 0.0114492, -0.000525586, 0.999869)
+bones/23/rotation = Quaternion(0.0171868, 0.0172754, -0.00286582, 0.999699)
+bones/24/rotation = Quaternion(1.74296e-09, -1.8582e-09, 0.00256958, 0.999997)
+bones/25/rotation = Quaternion(-0.00705736, -0.00705736, -0.303686, 0.95272)
+bones/26/rotation = Quaternion(0.0028266, 0.0062774, 0.0260242, 0.999638)
+bones/27/rotation = Quaternion(4.20849e-10, 4.49759e-10, -0.00931651, 0.999957)
+bones/28/rotation = Quaternion(-1.69576e-09, -1.92297e-09, 0.0388071, 0.999247)
+bones/29/rotation = Quaternion(-8.09805e-09, -2.11101e-08, 0.367738, 0.929929)
+bones/30/rotation = Quaternion(1.17693e-12, -9.96466e-11, 0.00150728, 0.999999)
+bones/31/rotation = Quaternion(3.30174e-08, 6.48512e-10, -0.723102, 0.690741)
+bones/32/rotation = Quaternion(-2.50566e-10, -6.86609e-10, 0.00524458, 0.999986)
+bones/33/rotation = Quaternion(0.980081, -0.132697, -0.143962, 0.0332855)
+bones/34/rotation = Quaternion(-0.00246952, 0.129089, -0.116178, 0.984801)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/GeneralSkeleton" index="1"]
+transform = Transform3D(6.57048e-07, -0.999999, -4.10165e-07, 3.44292e-07, -3.00366e-07, 0.999999, -0.999999, -5.75092e-07, 4.24702e-07, -1.93292, -0.127291, 0.00073489)
+bone_name = "Bone.38"
+bone_idx = 9
+
+[node name="Empty2" type="Node3D" parent="Armature/GeneralSkeleton/BoneAttachment3D" index="0"]
+transform = Transform3D(0.983794, -0.179124, 0.00808306, 0.069971, 0.342011, -0.937087, 0.16509, 0.922466, 0.349002, 0.0128922, -0.0110294, -0.0775789)
+
+[node name="Scythe" type="MeshInstance3D" parent="Armature/GeneralSkeleton/BoneAttachment3D/Empty2" index="0"]
 transform = Transform3D(-0.00101311, -0.0586318, -1.38883e-08, -5.24287e-09, 1.3981e-08, -0.0586405, 0.0586318, -0.00101311, -5.48364e-09, -0.39132, -0.00602322, -0.0644856)
 mesh = SubResource("ArrayMesh_k4k5s")
 skeleton = NodePath("")

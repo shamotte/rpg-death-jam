@@ -45,3 +45,10 @@ func dead(data : Variant = null):
 	d.global_rotation = global_rotation
 	get_parent().add_child(d)
 	queue_free()
+
+var scared_emotion = preload("res://objects/emotion/emotion.tscn")
+func scared():
+	var emo = scared_emotion.instantiate()
+	emo.emotion = "shock"
+	emo.global_position = global_position + Vector3(0, 2, 0)
+	add_child(emo)
