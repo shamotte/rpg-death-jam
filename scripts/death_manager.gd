@@ -26,8 +26,7 @@ func check_end_condition():
 			print("DM","wszyscy umrali na raz")
 		else:
 			print("DM","nuh uh")
-	else:
-		
+	
 	
 
 
