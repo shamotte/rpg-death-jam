@@ -11,3 +11,4 @@ func _input(event):
 
 func progres_time(time_steps : int):
 	time_tick.emit(time_steps)
+	DeathManager.check_end_condition()

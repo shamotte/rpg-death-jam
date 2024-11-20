@@ -13,6 +13,7 @@ func _ready() -> void:
 	anim.play(current_animation)
 	super._ready()
 	move_direction = Vector3i(basis.z)
+	DeathManager.register_victim(self)
 
 func change_animation(new_animation : String):
 	current_animation = new_animation
@@ -35,8 +36,9 @@ func set_moving(moving : bool):
 	can_move = moving
 
 func dead(data : Variant = null):
-	queue_free()
+	DeathManager.unalive(self)
 	var d = dead_model.instantiate()
 	d.global_position = global_position
 	d.global_rotation = global_rotation
 	get_parent().add_child(d)
+	queue_free()
