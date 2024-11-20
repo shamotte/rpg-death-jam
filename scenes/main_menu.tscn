@@ -97,6 +97,10 @@ environment = SubResource("Environment_0gt3l")
 [node name="woman" parent="." instance=ExtResource("3_o0st6")]
 transform = Transform3D(0.215011, 0, -0.451409, 0, 0.5, 0, 0.451409, 0, 0.215011, 0, 1.43746, -2.77222)
 current_animation = "Walk"
+can_move = null
+grid_position = null
+size_on_grid = null
+prefab_name = null
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.226501, 2.36634, 0.687445)
