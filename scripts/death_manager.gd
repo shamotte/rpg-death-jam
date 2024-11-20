@@ -7,6 +7,7 @@ var started_unaliving :bool = false
 
 
 func reset_counter():
+	started_unaliving = false
 	living_people.clear()
 	
 func register_victim(victim):
