@@ -16,6 +16,8 @@ func set_falling(f: bool) -> void:
 	else:
 		move_direction = Vector3(0, 0, 0)
 		$Visual/Arrow.visible = false
+		
+	update_label()
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,4 +33,23 @@ func _process(delta: float) -> void:
 func move_time_steps(time_steps : int):
 	move(move_direction * time_steps)
 	
+	update_label()
 	
+	
+	
+func update_label():
+	$Visual/AboveGround.visible = falling
+	
+	if falling:
+		
+		var steps_above_ground = 0
+		for i in range(1, 10):
+			var object = Grid.get_grid().get_cell_content_world(global_position + Vector3(0, -i, 0))
+			if (object is not GridElement) or (not is_instance_valid(object)) or (object == null):
+				steps_above_ground += 1
+			else:
+				break
+				
+		$Visual/AboveGround.text = str(steps_above_ground) if steps_above_ground > 0 else "!!!"
+		$Visual/AboveGround.modulate = Color.WHITE if steps_above_ground > 0 else Color.RED
+		

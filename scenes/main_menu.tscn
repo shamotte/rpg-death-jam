@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://b38p6p4m7hoch"]
+[gd_scene load_steps=18 format=3 uid="uid://b38p6p4m7hoch"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_p8tws"]
 [ext_resource type="PackedScene" uid="uid://d2yhsx83qvjan" path="res://objects/humand/woman.tscn" id="3_o0st6"]
+[ext_resource type="Theme" uid="uid://bljvhgxtkdf82" path="res://themes/main_menu.tres" id="3_q4ml7"]
 [ext_resource type="PackedScene" uid="uid://dahp5ue2jeouo" path="res://objects/player/death_model.tscn" id="4_pttgp"]
 [ext_resource type="PackedScene" uid="uid://vs5lkq4ij5ox" path="res://objects/anvil/anvil.gltf" id="4_umhbg"]
 
@@ -26,50 +27,6 @@ Label/colors/font_shadow_color = Color(0.00820202, 0.00820202, 0.00820202, 1)
 Label/constants/shadow_offset_x = 0
 Label/constants/shadow_offset_y = 6
 Label/font_sizes/font_size = 72
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aixvy"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f51bl"]
-bg_color = Color(0.609018, 0.203781, 0.327896, 1)
-border_width_bottom = 10
-border_color = Color(0.361828, 0.0540407, 0.188894, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pp0k"]
-bg_color = Color(0.897389, 0.441905, 0.433442, 1)
-border_width_bottom = 10
-border_color = Color(0.361828, 0.0540407, 0.188894, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhf5w"]
-bg_color = Color(0.360784, 0.054902, 0.188235, 1)
-border_width_bottom = 10
-border_color = Color(0.261192, 0.0285247, 0.129962, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 8
-
-[sub_resource type="Theme" id="Theme_ig5wr"]
-Button/colors/font_color = Color(0.0923973, 0.092397, 0.092397, 1)
-Button/colors/font_focus_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
-Button/font_sizes/font_size = 32
-Button/styles/focus = SubResource("StyleBoxEmpty_aixvy")
-Button/styles/hover = SubResource("StyleBoxFlat_f51bl")
-Button/styles/normal = SubResource("StyleBoxFlat_6pp0k")
-Button/styles/pressed = SubResource("StyleBoxFlat_jhf5w")
 
 [sub_resource type="Animation" id="Animation_3lgin"]
 length = 0.001
@@ -165,40 +122,66 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("3_q4ml7")
 
-[node name="StartGame2" type="Button" parent="CanvasLayer/Level Select"]
+[node name="Level1" type="Button" parent="CanvasLayer/Level Select"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = 473.0
-offset_right = 182.0
-offset_bottom = 527.0
+offset_left = 83.0
+offset_top = 199.0
+offset_right = 241.0
+offset_bottom = 254.0
 grow_vertical = 0
 text = "Level 1"
+
+[node name="Level2" type="Button" parent="CanvasLayer/Level Select"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 150.0
+offset_top = 278.0
+offset_right = 308.0
+offset_bottom = 333.0
+grow_vertical = 0
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="CanvasLayer/Level Select"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 226.0
+offset_top = 353.0
+offset_right = 384.0
+offset_bottom = 408.0
+grow_vertical = 0
+text = "Level 3"
 
 [node name="Exit2" type="Button" parent="CanvasLayer/Level Select"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = 538.0
-offset_right = 182.0
-offset_bottom = 592.0
+offset_left = 48.0
+offset_top = 505.0
+offset_right = 268.0
+offset_bottom = 571.0
 grow_vertical = 0
 text = "Back
 "
 
 [node name="Main Menu" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ig5wr")
+theme = ExtResource("3_q4ml7")
 
 [node name="StartGame" type="Button" parent="CanvasLayer/Main Menu"]
 layout_mode = 1
@@ -243,6 +226,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77833, 14.7559)
 [node name="death" parent="." instance=ExtResource("4_pttgp")]
 transform = Transform3D(0.166212, 0, -0.471565, 0, 0.5, 0, 0.471565, 0, 0.166212, 1.89411, 1.92596, -2.9221)
 current_animation = "Walk_scythe"
+reset_animation = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -263,7 +247,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
 mesh = SubResource("CylinderMesh_4qpiu")
 
-[connection signal="pressed" from="CanvasLayer/Level Select/StartGame2" to="." method="_on_start_game_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/Level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Level Select/Exit2" to="." method="_on_exit_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/StartGame" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/Select Level" to="." method="_on_select_level_pressed"]

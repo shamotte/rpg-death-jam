@@ -16,6 +16,10 @@ func _input(event):
 			character_model.change_animation("Interact_scythe")
 			#character_model.change_animation("attack_scythe")
 			interacting.interact()
+		if interacting is Human:
+			character_model.change_animation("attack_scythe")
+			interacting.dead()
+			#character_model.change_animation("attack_scythe")
 	
 	if event.is_action_pressed("move_left"):
 		global_rotation.y = deg_to_rad(-90)
@@ -23,6 +27,7 @@ func _input(event):
 			TimeManager.progres_time(1)
 			move(Vector3(-1, 0, 0))
 			update_movement_checks()
+			show_tip()
 			
 		if Grid.get_grid().get_cell_content_world($"MovementChecks/Y-".global_position) is not GroundTile:
 			death()
@@ -33,6 +38,7 @@ func _input(event):
 			TimeManager.progres_time(1)
 			move(Vector3(1, 0, 0))
 			update_movement_checks()
+			show_tip()
 			
 		if Grid.get_grid().get_cell_content_world($"MovementChecks/Y-".global_position) is not GroundTile:
 			death()
@@ -43,6 +49,7 @@ func _input(event):
 			TimeManager.progres_time(1)
 			move(Vector3(0, 0, -1))
 			update_movement_checks()
+			show_tip()
 			
 		if Grid.get_grid().get_cell_content_world($"MovementChecks/Y-".global_position) is not GroundTile:
 			death()
@@ -53,6 +60,7 @@ func _input(event):
 			TimeManager.progres_time(1)
 			move(Vector3(0, 0, 1))
 			update_movement_checks()
+			show_tip()
 			
 		if Grid.get_grid().get_cell_content_world($"MovementChecks/Y-".global_position) is not GroundTile:
 			death()
@@ -69,6 +77,17 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func update_movement_checks():
 	$MovementChecks.global_position = global_position
+
+func show_tip():
+	print("check1")
+	var temp = grid_position + Vector3i(basis.z)
+	var interacting = Grid.get_grid().get_cell_content_world(temp)
+	var interacting_list = [AnvilActivator,Human]
+	if interacting is AnvilActivator:
+		print("check")
+	if interacting is Human:
+		print("check")
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

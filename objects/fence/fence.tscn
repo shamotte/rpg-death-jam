@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://kcne7vfwqlht"]
+
+[ext_resource type="Script" path="res://objects/fence/fence.gd" id="1_exned"]
+[ext_resource type="PackedScene" uid="uid://cc8gnm35bf0xf" path="res://objects/fence/fence1.glb" id="3_03y4d"]
+
+[node name="Fence" type="Node3D" groups=["grid_element"]]
+script = ExtResource("1_exned")
+
+[node name="fence1" parent="." instance=ExtResource("3_03y4d")]
