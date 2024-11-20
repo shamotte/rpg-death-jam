@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://d35ul7qmf1hkx"]
+[gd_scene load_steps=15 format=3 uid="uid://d35ul7qmf1hkx"]
 
+[ext_resource type="PackedScene" uid="uid://qsxcvbwshvtc" path="res://objects/camera/camera.tscn" id="1_gy4ii"]
 [ext_resource type="Script" path="res://grid.gd" id="1_jrmwe"]
 [ext_resource type="PackedScene" uid="uid://xeoyjwfjd2s3" path="res://objects/anvil/anvil.tscn" id="2_crimj"]
 [ext_resource type="PackedScene" uid="uid://7i2r8txvxp7f" path="res://objects/ground_tile/grass/grass_tile.tscn" id="3_5m0kr"]
@@ -42,9 +43,7 @@ light_color = Color(0.999787, 0.86806, 0, 1)
 light_energy = 0.238
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.942286, 0.33481, 0, -0.33481, 0.942286, 0, 4.35403, 8.19795)
-current = true
+[node name="Camera" parent="." instance=ExtResource("1_gy4ii")]
 
 [node name="Plane" type="MeshInstance3D" parent="."]
 visible = false
@@ -55,7 +54,7 @@ process_priority = -1
 script = ExtResource("1_jrmwe")
 
 [node name="Anvil2" parent="Tiles" instance=ExtResource("2_crimj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, 2)
 
 [node name="Tiles" type="Node3D" parent="Tiles" groups=["grid_container"]]
 process_priority = -1
@@ -239,6 +238,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
 
 [node name="GrassTile78" parent="Tiles/Tiles" instance=ExtResource("3_5m0kr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
+
+[node name="GrassTile85" parent="Tiles/Tiles" instance=ExtResource("3_5m0kr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="GrassTile86" parent="Tiles/Tiles" instance=ExtResource("3_5m0kr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+
+[node name="GrassTile87" parent="Tiles/Tiles" instance=ExtResource("3_5m0kr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1)
+
+[node name="GrassTile88" parent="Tiles/Tiles" instance=ExtResource("3_5m0kr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="GrassTile89" parent="Tiles/Tiles" instance=ExtResource("3_5m0kr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
 [node name="GrassTile41" parent="Tiles/Tiles" instance=ExtResource("3_5m0kr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1, 1)

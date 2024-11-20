@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://gwci7kt8l30t"]
+[gd_scene load_steps=13 format=3 uid="uid://gwci7kt8l30t"]
 
+[ext_resource type="PackedScene" uid="uid://qsxcvbwshvtc" path="res://objects/camera/camera.tscn" id="1_6qmge"]
 [ext_resource type="Script" path="res://grid.gd" id="1_mds20"]
 [ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/fence/fence.tscn" id="3_eqkla"]
 [ext_resource type="PackedScene" uid="uid://7i2r8txvxp7f" path="res://objects/ground_tile/grass/grass_tile.tscn" id="3_vut1c"]
@@ -40,8 +41,7 @@ light_color = Color(0.999787, 0.86806, 0, 1)
 light_energy = 0.238
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.942286, 0.33481, 0, -0.33481, 0.942286, 0, 4.35403, 8.19795)
+[node name="Camera" parent="." instance=ExtResource("1_6qmge")]
 
 [node name="Plane" type="MeshInstance3D" parent="."]
 visible = false

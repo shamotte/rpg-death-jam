@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://clorfymsvn4ce"]
+[gd_scene load_steps=14 format=3 uid="uid://clorfymsvn4ce"]
 
 [ext_resource type="PackedScene" uid="uid://xeoyjwfjd2s3" path="res://objects/anvil/anvil.tscn" id="1_abngx"]
+[ext_resource type="PackedScene" uid="uid://qsxcvbwshvtc" path="res://objects/camera/camera.tscn" id="1_dy41q"]
 [ext_resource type="Script" path="res://grid.gd" id="1_vx12u"]
 [ext_resource type="PackedScene" uid="uid://cxo04kudaw137" path="res://objects/player/player.tscn" id="2_6u2a3"]
 [ext_resource type="PackedScene" uid="uid://c5e5h4u44d0k5" path="res://objects/anvil/anvil_activator.tscn" id="3_x5n1l"]
@@ -41,9 +42,7 @@ light_color = Color(0.999787, 0.86806, 0, 1)
 light_energy = 0.238
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.942286, 0.33481, 0, -0.33481, 0.942286, 0, 4.35403, 8.19795)
-current = true
+[node name="Camera" parent="." instance=ExtResource("1_dy41q")]
 
 [node name="Plane" type="MeshInstance3D" parent="."]
 visible = false
