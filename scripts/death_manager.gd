@@ -10,6 +10,7 @@ signal not_all_dead
 
 
 func reset_counter():
+	started_unaliving = false
 	living_people.clear()
 	
 func register_victim(victim):
