@@ -247,6 +247,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
 mesh = SubResource("CylinderMesh_4qpiu")
 
+[connection signal="pressed" from="CanvasLayer/Level Select/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/Level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Level Select/Exit2" to="." method="_on_exit_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/StartGame" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/Select Level" to="." method="_on_select_level_pressed"]
