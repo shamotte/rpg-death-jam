@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cctfmh38ompte"]
+[gd_scene load_steps=9 format=3 uid="uid://cctfmh38ompte"]
 
 [ext_resource type="Script" path="res://interface/ui.gd" id="1_4lf7x"]
 [ext_resource type="PackedScene" uid="uid://bql06l0cfkaeh" path="res://interface/win_panel.tscn" id="2_5fdnd"]
@@ -25,6 +25,18 @@ tracks/1/path = NodePath("LosePanel:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(451, -200)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FallPanel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -63,14 +75,31 @@ tracks/0/keys = {
 "values": [Vector2(451, -200), Vector2(451, 200)]
 }
 
+[sub_resource type="Animation" id="Animation_awfmo"]
+resource_name = "show_fall"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FallPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.615, 1.86),
+"update": 0,
+"values": [Vector2(451, -200), Vector2(451, 200)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7b6k2"]
 _data = {
 "RESET": SubResource("Animation_5jxb7"),
+"show_fall": SubResource("Animation_awfmo"),
 "show_lose": SubResource("Animation_u4um2"),
 "show_win": SubResource("Animation_ooljd")
 }
 
-[node name="UI" type="Control" node_paths=PackedStringArray("win_panel", "lose_panel", "anim")]
+[node name="UI" type="Control" node_paths=PackedStringArray("win_panel", "lose_panel", "fall_down_panel", "anim")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -78,6 +107,7 @@ offset_bottom = 40.0
 script = ExtResource("1_4lf7x")
 win_panel = NodePath("WinPanel")
 lose_panel = NodePath("LosePanel")
+fall_down_panel = NodePath("FallPanel")
 anim = NodePath("AnimationPlayer")
 
 [node name="WinPanel" parent="." instance=ExtResource("2_5fdnd")]
@@ -88,6 +118,13 @@ offset_right = 710.0
 offset_bottom = -55.0
 
 [node name="LosePanel" parent="." instance=ExtResource("3_q6de3")]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 200.0
+offset_right = 710.0
+offset_bottom = 345.0
+
+[node name="FallPanel" parent="." instance=ExtResource("3_q6de3")]
 layout_mode = 0
 offset_left = 451.0
 offset_top = -200.0

@@ -41,9 +41,9 @@ func set_moving(moving : bool):
 func dead(data : Variant = null):
 	DeathManager.unalive(self)
 	var d = dead_model.instantiate()
+	d.global_position = self.global_position
+	d.global_rotation = self.global_rotation
 	get_parent().add_child(d)
-	d.global_position = global_position
-	d.global_rotation = global_rotation
 	queue_free()
 
 var scared_emotion = preload("res://objects/emotion/emotion.tscn")

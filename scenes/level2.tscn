@@ -308,6 +308,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("11_jssll")]
-current_level = "2"
-next_level = "3"
+[node name="UI" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("11_jssll")]
+current_level = 2
+next_level = 3
+player = NodePath("../../Tiles/Tiles/Player")

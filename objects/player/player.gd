@@ -4,6 +4,7 @@ class_name Player
 @export var character_model : Node3D
 
 var can_move: bool = true
+signal player_fall_down
 
 func _input(event):
 	if not can_move:
@@ -75,7 +76,8 @@ func death():
 	
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "death":
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		player_fall_down.emit()
+		#get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func update_movement_checks():
 	$MovementChecks.global_position = global_position

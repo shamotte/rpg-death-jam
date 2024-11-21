@@ -7,7 +7,7 @@ func _ready():
 		current_level = "res://scenes/main_menu.tscn"
 
 func set_current_level(cur_level : String):
-	if cur_level == "":
+	if cur_level == "0":
 		cur_level = "res://scenes/main_menu.tscn"
 		return
 	current_level = "res://scenes/level" + cur_level + ".tscn"

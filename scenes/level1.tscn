@@ -329,6 +329,7 @@ current_level = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("8_ihasq")]
-current_level = "1"
-next_level = "2"
+[node name="UI" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("8_ihasq")]
+current_level = 1
+next_level = 2
+player = NodePath("../../Tiles/Tiles/Player")
