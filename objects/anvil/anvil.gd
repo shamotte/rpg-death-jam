@@ -22,6 +22,8 @@ func set_falling(f: bool) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
+	await get_tree().process_frame
+	
 	set_falling(falling)
 
 

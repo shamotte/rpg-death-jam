@@ -9,7 +9,7 @@ func _ready():
 	main_menu.visible = true
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_scene.tscn")
+	get_tree().change_scene_to_file("res://scenes/level1.tscn")
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
@@ -37,3 +37,15 @@ func _on_level_3_pressed() -> void:
 
 func _on_level_4_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level4.tscn")
+
+
+func _on_level_5_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/level5.tscn")
+
+
+func _on_level_6_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/level6.tscn")
+
+
+func _on_level_7_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/level7.tscn")

@@ -172,6 +172,45 @@ offset_bottom = 486.0
 grow_vertical = 0
 text = "Level 4"
 
+[node name="Level5" type="Button" parent="CanvasLayer/Level Select"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 328.0
+offset_top = 199.0
+offset_right = 486.0
+offset_bottom = 254.0
+grow_vertical = 0
+text = "Level 5
+"
+
+[node name="Level6" type="Button" parent="CanvasLayer/Level Select"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 411.0
+offset_top = 278.0
+offset_right = 569.0
+offset_bottom = 333.0
+grow_vertical = 0
+text = "Level 6
+"
+
+[node name="Level7" type="Button" parent="CanvasLayer/Level Select"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 486.0
+offset_top = 353.0
+offset_right = 644.0
+offset_bottom = 408.0
+grow_vertical = 0
+text = "Level 7
+"
+
 [node name="Exit2" type="Button" parent="CanvasLayer/Level Select"]
 layout_mode = 1
 anchors_preset = 2
@@ -263,6 +302,9 @@ mesh = SubResource("CylinderMesh_4qpiu")
 [connection signal="pressed" from="CanvasLayer/Level Select/Level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Level Select/Level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Level Select/Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/Level5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/Level6" to="." method="_on_level_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/Level Select/Level7" to="." method="_on_level_7_pressed"]
 [connection signal="pressed" from="CanvasLayer/Level Select/Exit2" to="." method="_on_exit_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/StartGame" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main Menu/Select Level" to="." method="_on_select_level_pressed"]

@@ -3,6 +3,8 @@ class_name Player
 
 @export var character_model : Node3D
 
+var is_locked : bool
+
 var can_move: bool = true
 signal player_fall_down
 
@@ -97,6 +99,8 @@ func show_tip():
 func _ready() -> void:
 	update_movement_checks()
 	character_model.change_animation("Idle_scythe")
+	DeathManager.connect("all_dead",lock_movement)
+	DeathManager.connect("not_all_dead",lock_movement)
 
 func _physics_process(delta: float) -> void:
 	pass
@@ -105,3 +109,6 @@ func _physics_process(delta: float) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func lock_movement():
+	can_move = false

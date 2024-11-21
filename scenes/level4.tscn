@@ -401,4 +401,5 @@ current_level = 4
 
 [node name="UI" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("8_p50yi")]
 current_level = 4
+next_level = 5
 player = NodePath("../../Tiles/Tiles/Player")
