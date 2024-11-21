@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://6dm28m5hl1wl"]
+[gd_scene load_steps=15 format=3 uid="uid://d35ul7qmf1hkx"]
 
 [ext_resource type="PackedScene" uid="uid://qsxcvbwshvtc" path="res://objects/camera/camera.tscn" id="1_gy4ii"]
 [ext_resource type="Script" path="res://grid.gd" id="1_jrmwe"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://7i2r8txvxp7f" path="res://objects/ground_tile/grass/grass_tile.tscn" id="3_5m0kr"]
 [ext_resource type="PackedScene" uid="uid://cxo04kudaw137" path="res://objects/player/player.tscn" id="6_xs5ib"]
 [ext_resource type="PackedScene" uid="uid://dap2eh4muy6or" path="res://objects/humand/human_2.tscn" id="7_8fqcr"]
-[ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/fence/fence.tscn" id="9_ekfer"]
+[ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/anvil/anvil_activator.tscn" id="9_ekfer"]
 [ext_resource type="PackedScene" uid="uid://3wt40i73oolg" path="res://ui/quit.tscn" id="9_kdwmp"]
 [ext_resource type="PackedScene" uid="uid://cctfmh38ompte" path="res://interface/game_ui.tscn" id="9_ybngp"]
 
@@ -325,8 +325,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.0
 [node name="Human2" parent="Tiles/Tiles" instance=ExtResource("7_8fqcr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.0988425, -2)
 
-[node name="AnvilActivator" parent="Tiles/Tiles" instance=ExtResource("9_ekfer")]
+[node name="AnvilActivator" parent="Tiles/Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("9_ekfer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+anvil = NodePath("../../Anvil2")
 
 [node name="Quit" parent="." instance=ExtResource("9_kdwmp")]
 
@@ -384,3 +385,4 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("9_ybngp")]
+current_level = "3"
