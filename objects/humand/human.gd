@@ -32,7 +32,7 @@ func move_time_steps(time_steps : int):
 		self.rotation.y += deg_to_rad(180)
 		move_direction = Vector3i(basis.z)
 		move(move_direction)
-	elif not is_instance_valid(pom):
+	elif pom != null:
 		self.rotation.y += deg_to_rad(180)
 		move_direction = Vector3i(basis.z)
 		move(move_direction)
