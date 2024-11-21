@@ -24,8 +24,7 @@ func change_animation(new_animation : String):
 	
 func move_time_steps(time_steps : int):
 	var pom = Grid.get_grid().get_cell_content_world(Vector3i(self.position) + Vector3i(basis.z)) 
-	if not is_instance_valid(pom):
-		move_direction *= -1
+	
 	
 	if !can_move:
 		return
@@ -33,7 +32,9 @@ func move_time_steps(time_steps : int):
 		self.rotation.y += deg_to_rad(180)
 		move_direction = Vector3i(basis.z)
 		move(move_direction)
-	
+	elif not is_instance_valid(pom):
+		self.rotation.y += deg_to_rad(180)
+		move_direction = Vector3i(basis.z)
 	else: 
 		move_direction = Vector3i(basis.z)
 		move(move_direction)
