@@ -38,6 +38,9 @@ func move_time_steps(time_steps : int):
 func set_moving(moving : bool):
 	can_move = moving
 
+func can_move_forward():
+		pass
+
 func dead(data : Variant = null):
 	DeathManager.unalive(self)
 	var d = dead_model.instantiate()
