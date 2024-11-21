@@ -15,6 +15,5 @@ func set_next_level(new_level : String):
 func _on_main_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
-
 func _on_next_level_pressed() -> void:
 	get_tree().change_scene_to_file(next_level)
