@@ -384,5 +384,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("9_ybngp")]
-current_level = "3"
+[node name="UI" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("9_ybngp")]
+current_level = 3
+player = NodePath("../../Tiles/Tiles/Player")
