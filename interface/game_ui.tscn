@@ -4,22 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bql06l0cfkaeh" path="res://interface/win_panel.tscn" id="2_5fdnd"]
 [ext_resource type="PackedScene" uid="uid://b0nw2fot1hjc7" path="res://interface/lose_panel.tscn" id="3_q6de3"]
 
-[sub_resource type="Animation" id="Animation_ooljd"]
-resource_name = "show_win"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WinPanel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.615572, 1.86607),
-"update": 0,
-"values": [Vector2(451, -200), Vector2(451, 200)]
-}
-
 [sub_resource type="Animation" id="Animation_5jxb7"]
 length = 0.001
 tracks/0/type = "value"
@@ -59,6 +43,22 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(0.615, 1.86),
+"update": 0,
+"values": [Vector2(451, -200), Vector2(451, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_ooljd"]
+resource_name = "show_win"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WinPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.615572, 1.86607),
 "update": 0,
 "values": [Vector2(451, -200), Vector2(451, 200)]
 }
