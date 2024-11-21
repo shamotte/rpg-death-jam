@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://7i2r8txvxp7f" path="res://objects/ground_tile/grass/grass_tile.tscn" id="3_yp68r"]
 [ext_resource type="PackedScene" uid="uid://dap2eh4muy6or" path="res://objects/humand/human_2.tscn" id="5_ei7js"]
 [ext_resource type="PackedScene" uid="uid://3wt40i73oolg" path="res://ui/quit.tscn" id="5_y0fn4"]
-[ext_resource type="PackedScene" uid="uid://kcne7vfwqlht" path="res://objects/anvil/anvil_activator.tscn" id="6_e7g6b"]
+[ext_resource type="PackedScene" uid="uid://gotmituns420" path="res://objects/anvil/anvil_activator.tscn" id="6_e7g6b"]
 [ext_resource type="PackedScene" uid="uid://cctfmh38ompte" path="res://interface/game_ui.tscn" id="8_gpn2o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x8kc5"]
