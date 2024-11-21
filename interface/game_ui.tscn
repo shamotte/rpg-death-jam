@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cctfmh38ompte"]
+[gd_scene load_steps=10 format=3 uid="uid://cctfmh38ompte"]
 
 [ext_resource type="Script" path="res://interface/ui.gd" id="1_4lf7x"]
 [ext_resource type="PackedScene" uid="uid://bql06l0cfkaeh" path="res://interface/win_panel.tscn" id="2_5fdnd"]
 [ext_resource type="PackedScene" uid="uid://b0nw2fot1hjc7" path="res://interface/lose_panel.tscn" id="3_q6de3"]
+[ext_resource type="PackedScene" uid="uid://nmkxhct514rm" path="res://interface/fall_down_panel.tscn" id="4_618fm"]
 
 [sub_resource type="Animation" id="Animation_5jxb7"]
 length = 0.001
@@ -33,14 +34,30 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("FallPanel:position")
+tracks/2/path = NodePath("FallDownPanel:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(451, -200)]
+"values": [Vector2(458, 122)]
+}
+
+[sub_resource type="Animation" id="Animation_awfmo"]
+resource_name = "show_fall"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FallDownPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.615, 1.86),
+"update": 0,
+"values": [Vector2(458, -200), Vector2(458, 200)]
 }
 
 [sub_resource type="Animation" id="Animation_u4um2"]
@@ -75,22 +92,6 @@ tracks/0/keys = {
 "values": [Vector2(451, -200), Vector2(451, 200)]
 }
 
-[sub_resource type="Animation" id="Animation_awfmo"]
-resource_name = "show_fall"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FallPanel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.615, 1.86),
-"update": 0,
-"values": [Vector2(451, -200), Vector2(451, 200)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7b6k2"]
 _data = {
 "RESET": SubResource("Animation_5jxb7"),
@@ -107,7 +108,7 @@ offset_bottom = 40.0
 script = ExtResource("1_4lf7x")
 win_panel = NodePath("WinPanel")
 lose_panel = NodePath("LosePanel")
-fall_down_panel = NodePath("FallPanel")
+fall_down_panel = NodePath("FallDownPanel")
 anim = NodePath("AnimationPlayer")
 
 [node name="WinPanel" parent="." instance=ExtResource("2_5fdnd")]
@@ -120,16 +121,16 @@ offset_bottom = -55.0
 [node name="LosePanel" parent="." instance=ExtResource("3_q6de3")]
 layout_mode = 0
 offset_left = 451.0
-offset_top = 200.0
-offset_right = 710.0
-offset_bottom = 345.0
-
-[node name="FallPanel" parent="." instance=ExtResource("3_q6de3")]
-layout_mode = 0
-offset_left = 451.0
 offset_top = -200.0
 offset_right = 710.0
 offset_bottom = -55.0
+
+[node name="FallDownPanel" parent="." instance=ExtResource("4_618fm")]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 122.0
+offset_right = 717.0
+offset_bottom = 267.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

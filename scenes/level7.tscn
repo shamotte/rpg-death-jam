@@ -305,18 +305,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
 
 [node name="AnvilActivator" parent="Tiles/Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("5_hchhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4)
-anvil = NodePath("../Anvil")
+anvil = NodePath("../Anvil3")
 
 [node name="AnvilActivator3" parent="Tiles/Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("5_hchhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
-anvil = NodePath("../Anvil2")
+anvil = NodePath("../Anvil")
 
 [node name="Anvil" parent="Tiles/Tiles" instance=ExtResource("6_1e28p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 6, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 6, 3)
 
 [node name="Anvil2" parent="Tiles/Tiles" instance=ExtResource("6_1e28p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6, 0)
 falling = true
+
+[node name="Anvil3" parent="Tiles/Tiles" instance=ExtResource("6_1e28p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5, 3)
 
 [node name="Player" parent="Tiles/Tiles" instance=ExtResource("7_yyuso")]
 
