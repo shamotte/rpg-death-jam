@@ -324,7 +324,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.0988425, 2)
 
 [node name="Human2" parent="Tiles/Tiles" instance=ExtResource("7_8fqcr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.0988425, -2)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0.0988425, -2)
 
 [node name="AnvilActivator" parent="Tiles/Tiles" node_paths=PackedStringArray("anvil") instance=ExtResource("7_cyk3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
@@ -387,4 +387,5 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 
 
 [node name="UI" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("9_ybngp")]
 current_level = 3
+next_level = 4
 player = NodePath("../../Tiles/Tiles/Player")
